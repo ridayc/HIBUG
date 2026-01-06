@@ -17,12 +17,16 @@ an analysis tool,
 a comparison framework,
 and a playground for reasoning about complexity, scaling, and even quantum-like behavior from a computational perspective.
 
+
 ---
+
 
 # Reading Note
 HI-BUG uses several terms (e.g. bounded, universal, implicit) in a framework-specific sense. A precise clarification of these terms appears in Model Clarifiers below. Claims about scaling and complexity should be read in that context.
 
+
 ---
+
 
 # Core Components
 
@@ -50,6 +54,7 @@ Importantly, it admits a clean infinite-band limit (n -> inf).
 
 ---
 
+
 2. The TM / Controller (Global, Sequential)
 
 The TM:
@@ -70,6 +75,7 @@ This component represents global computation that cannot be achieved by strictly
 
 ---
 
+
 3. Update Semantics
 
 Computation proceeds in rounds.
@@ -86,6 +92,7 @@ This explicitly separates local fast dynamics from rare global coordination.
 
 ---
 
+
 # Explicit Rules and "Cheating"
 
 HI-BUG is designed to make assumptions explicit, not to forbid power.
@@ -99,6 +106,7 @@ Any discussion of complexity or scaling must state whether such features are ena
 
 
 ---
+
 
 # HI-BUG terminology (clarifications)
 
@@ -122,7 +130,9 @@ This separation is intentional and central to the framework.
 On scaling and diagonalization intuition
 HI-BUG makes a structural distinction that is often implicit in complexity discussions: local, uniform computation scales naturally with system size, while global aggregation becomes increasingly expensive. Arguments that rely on unrestricted global inspection or self-reference implicitly assume oracle-like access in the large-n limit. HI-BUG does not forbid such access, but requires it to be stated explicitly.
 
+
 ---
+
 
 # Scaling and the Infinite Limit
 
@@ -151,6 +161,7 @@ and why "global reasoning" and "local dynamics" should not be conflated.
 
 ---
 
+
 # Configuration Graph Perspective
 
 Each HI-BUG machine induces a configuration graph:
@@ -172,7 +183,8 @@ as questions about reachability, transients, and basin structure in this graph.
 
 ---
 
-Why This Is Useful
+
+# Why This Is Useful
 
 HI-BUG provides a shared interface to:
 
@@ -182,8 +194,8 @@ reason about which assumptions introduce oracle-like power,
 explore the relationship between locality, global aggregation, and scaling.
 
 
-
 ---
+
 
 # Quantum-Inspired Motivation (Optional)
 
@@ -198,7 +210,8 @@ This interpretation is exploratory and not a claim about physical reality -- it 
 
 ---
 
-This Repository
+
+# This Repository
 
 The code here is a toy implementation of the HI-BUG framework:
 
@@ -217,6 +230,7 @@ and comparing computational structures.
 
 
 ---
+
 
 # Status
 
