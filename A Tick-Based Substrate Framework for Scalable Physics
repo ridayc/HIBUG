@@ -386,7 +386,7 @@ but that very little deviation from observed physics remains computationally via
 That suggests the laws we observe may be less arbitrary than traditionally assumed — not because they are elegant, but because they are survivable.
 
 ============================================================
-Appendix: Failure Modes of Non-Survivable Substrate Designs
+Appendix A: Failure Modes of Non-Survivable Substrate Designs
 ============================================================
 
 This appendix catalogs alternative substrate intuitions that appear locally reasonable but fail under the framework’s core constraints:
@@ -595,3 +595,276 @@ fails to remain extensible. Its computational burden grows with universe size ra
 The constraints of locality, additivity, asynchronous evolution, and isolated global coordination are therefore not aesthetic preferences. They are the minimal conditions under which a universe can grow arbitrarily large — in space and in content — without its own structure becoming its dominant computational expense.
 
 Physics, in this view, is not the study of all conceivable laws, but of the narrow class that remain viable in a universe where adding space and adding matter are both cheap operations.
+
+============================================================
+
+Appendix B: Emergent Relativistic Behavior from Local Tick Dynamics
+
+============================================================
+
+------------------------------------------------------------
+B.1 Scope and intent
+------------------------------------------------------------
+
+This appendix explains how relativistic phenomena—time dilation, length contraction, invariant light speed, and the unobservability of uniform motion—emerge in the Tick-Based Substrate Framework without introducing inertial frames, velocity variables, or global coordination.
+
+No postulate of special relativity is assumed.
+All effects arise from locality, finite propagation, bounded update capacity, and the restriction that only matter-mediated quantities are observable.
+
+
+------------------------------------------------------------
+B.2 Substrate update order vs. material proper time
+------------------------------------------------------------
+
+The framework distinguishes two notions:
+
+1. Substrate update order (vacuum order)
+
+A global, monotonic causal ordering ensuring consistency.
+
+Not directly observable.
+
+Cannot store or transmit information.
+
+
+
+2. Material proper time
+
+Defined by how often matter cells successfully integrate updates.
+
+Observable via clocks, decay rates, oscillators, and all record-forming processes.
+
+Depends on local interaction load and density.
+
+
+
+
+When matter is locally at rest, its proper time matches the substrate update rate.
+Under motion or increased interaction load, proper time slows.
+
+Since vacuum has no clocks, substrate order is operationally inaccessible.
+
+
+------------------------------------------------------------
+B.3 Finite propagation and velocity saturation
+------------------------------------------------------------
+
+All influences propagate locally through ticks at finite speed.
+
+Consequences:
+
+Changes to velocity require force information to propagate across matter.
+
+Near the causal limit, additional force contributes progressively less to velocity change.
+
+Velocity therefore saturates, even while force, and stress continue to grow.
+
+
+This saturation is directional:
+
+Longitudinal velocity change (along motion) reduces.
+
+Transverse velocity is not effected by this.
+
+
+No cell stores velocity, remembers past motion, or identifies a frame.
+
+
+------------------------------------------------------------
+B.4 Time dilation as reduced material update rate
+------------------------------------------------------------
+
+Time dilation arises because:
+
+Matter updates only during its own local integration steps.
+
+Increased density (due to contraction) and interaction load reduce the effective number of updates per substrate order.
+
+All internal processes slow uniformly due to per cell density increase.
+
+
+Time dilation is therefore:
+
+scalar (direction-independent),
+
+local,
+
+inseparable from matter dynamics.
+
+
+All internal clocks slow together, making the effect unobservable locally.
+
+
+------------------------------------------------------------
+B.5 Length contraction as a density-driven equilibrium shift
+------------------------------------------------------------
+
+Length contraction is not imposed geometrically.
+
+Instead:
+
+Material objects have size because internal forces maintain equilibrium separations.
+
+Reduced longitudinal velocity responsiveness shifts these equilibria.
+
+Bound structures settle into shorter configurations along the motion direction.
+
+
+Crucially, length contraction increases local probability density:
+
+The same total probability mass occupies fewer CA cells along the direction of motion.
+
+Density per cell increases without any cell knowing “why”.
+
+
+
+------------------------------------------------------------
+B.6 No velocity tracking: anisotropy from local density alone
+------------------------------------------------------------
+
+The substrate does not track uniform velocity, inertial frames, or global flux.
+
+Each CA cell and edge only sees:
+
+local probability mass density,
+
+local tick throughput across each edge,
+
+local force accumulator values,
+
+local update load.
+
+
+Directional effects arise automatically:
+
+Increased density raises update load isotropically → time dilation.
+
+Edge throughput responds anisotropically:
+
+longitudinal edges saturate (causal limit),
+
+transverse edges see higher-than-usual throughput due to increased density.
+
+
+
+Thus:
+
+force equilibria become direction-dependent,
+
+rigidity “weakens” only in motion direction,
+
+without any velocity variable or nonlocal information.
+
+
+
+------------------------------------------------------------
+B.7 Shared causal bottleneck and scale locking
+------------------------------------------------------------
+
+Time dilation and length contraction arise from distinct mechanisms:
+
+time dilation from reduced update rate,
+
+length contraction from shifted force equilibria.
+
+
+However, both are governed by the same finite causal propagation and local update capacity.
+
+Therefore:
+
+the scaling factor affecting internal time
+
+and the scaling factor affecting equilibrium length
+
+
+are necessarily identical.
+
+This guarantees that all measurements constructed from matter clocks and rulers cancel uniform motion exactly, without fine-tuning.
+
+
+------------------------------------------------------------
+B.8 Light propagation and measurement
+------------------------------------------------------------
+
+Photon / electromagnetic carrier ticks propagate at fixed substrate speed and are unaffected by matter motion.
+
+However:
+
+light is only detected through matter,
+
+emission, absorption, and phase sampling are governed by matter proper time and matter length scales.
+
+
+As a result:
+
+emitted frequencies slow with time dilation,
+
+detected frequencies slow by the same factor,
+
+contracted rulers and slowed clocks cancel in speed measurements.
+
+
+All inertial observers measure the same light speed.
+
+
+------------------------------------------------------------
+B.9 Unobservability of uniform motion
+------------------------------------------------------------
+
+Because all measurable quantities—time intervals, distances, frequencies, interaction rates—are renormalized together:
+
+uniform motion produces no observable asymmetry,
+
+no local experiment can detect inertial velocity,
+
+relativistic equivalence of inertial frames emerges automatically.
+
+
+This is a consequence of locality and measurement restriction, not a postulate.
+
+
+------------------------------------------------------------
+B.10 Preferred frames and superluminal transport
+------------------------------------------------------------
+
+A preferred frame would become observable only if information could be extracted directly from the vacuum substrate.
+
+The framework forbids this:
+
+vacuum has no clocks,
+
+no memory,
+
+no record-forming capacity.
+
+
+Superluminal transport is not forbidden ontologically, but any superluminal signaling accessible to matter would:
+
+break observed causality,
+
+expose a preferred frame.
+
+
+Thus superluminality is diagnostic rather than contradictory.
+
+
+------------------------------------------------------------
+B.11 Summary
+------------------------------------------------------------
+
+Relativistic behavior in the Tick-Based Substrate Framework emerges from:
+
+local density and throughput,
+
+finite causal propagation,
+
+bounded update capacity,
+
+additive dynamics,
+
+and the restriction that only matter mediates observation.
+
+
+No inertial frames, velocity variables, or global coordination are required.
+
+Special relativity appears as the effective description of what remains observable in a scalable, local, asynchronous universe.
