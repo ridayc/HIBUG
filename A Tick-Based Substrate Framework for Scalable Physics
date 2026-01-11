@@ -852,19 +852,20 @@ Thus superluminality is diagnostic rather than contradictory.
 B.11 Summary
 ------------------------------------------------------------
 
-Relativistic behavior in the Tick-Based Substrate Framework emerges from:
+Relativistic behavior in the Tick-Based Substrate Framework is not a kinematic postulate but a dynamical necessity imposed by scalability, locality, and finite causal propagation.
 
-local density and throughput,
+Just as nonlinear mass or probability transport generically produces shocks, caustics, and nonlocal arbitration, unrestricted velocity transport under a finite causal speed would lead to velocity pileups, discontinuous fronts, divergent stresses, and observable preferred frames. Such behavior is computationally non-survivable in a local, asynchronous substrate.
 
-finite causal propagation,
+Special relativity emerges as the unique smooth regularization of velocity transport near a fundamental causal bound. Velocity response to force saturates continuously rather than clipping, distributing excess influence into internal degrees of freedom and equilibrium shifts instead of forming shocks. This prevents discontinuities in causal structure while preserving additivity and locality.
 
-bounded update capacity,
+In parallel, linear quantum dynamics plays the same structural role for probability transport: interference-capable superposition replaces shock resolution and avoids global arbitration near density bounds.
 
-additive dynamics,
+Thus, both relativistic kinematics and quantum linearity arise from the same underlying requirement:
 
-and the restriction that only matter mediates observation.
+> additive local influences must remain composable without shock formation as fundamental limits are approached.
 
 
-No inertial frames, velocity variables, or global coordination are required.
 
-Special relativity appears as the effective description of what remains observable in a scalable, local, asynchronous universe.
+Time dilation, length contraction, invariant signal speed, and the unobservability of uniform motion are consequences of this smooth saturation mechanism combined with density-mediated update load. No inertial frames, velocity variables, or global coordination are required.
+
+In this sense, special relativity and quantum mechanics are not independent principles but complementary shock-avoidance mechanisms operating in different transport domains—velocity and probability—within a single scalable local substrate.
