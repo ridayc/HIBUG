@@ -795,3 +795,190 @@ Whether nature realizes such a substrate remains an empirical question.
 The discussion here aims only to clarify why relativistic behavior may be difficult to avoid in any universe where matter must function reliably under arbitrary uniform motion.
 
 ---
+
+============================================================
+Appendix C: Exotic Regimes as Substrate Stress Tests
+============================================================
+
+---
+
+## C.0 Scope and Intent
+
+This appendix does **not** propose explanations of exotic physical phenomena, nor does it assert ontological claims about their true nature.
+
+Its purpose is **structural**:
+
+> To examine how a substrate constrained by locality, bounded local computation, additivity, and scalable extension behaves when pushed into extreme or exotic regimes—and whether such regimes require new rules, global coordination, or exceptional mechanisms.
+
+The focus is on **graceful accommodation** rather than derivation.  
+A framework is considered robust if exotic regimes:
+- do not violate core constraints,
+- do not require new classes of operations,
+- and do not introduce hidden global bookkeeping.
+
+---
+
+## C.1 Nontrivial Connectivity (e.g., Wormhole-Like Structures)
+
+**Temptation:**  
+Treat long-distance connectivity or topology change as violations of locality requiring exotic mechanisms or global coordination.
+
+**Observed difficulty:**  
+Frameworks that define locality metrically or through fixed global geometry often render nontrivial connectivity:
+- acausal,
+- coordination-heavy,
+- or dependent on special matter content.
+
+Such treatments introduce hidden nonlocal cost or require exceptions to ordinary update rules.
+
+**Behavior in this framework:**  
+Locality is defined structurally through adjacency rather than distance.  
+Nontrivial connectivity corresponds to ordinary graph edges with no special operational status.
+
+All local update rules remain unchanged.  
+Coordination cost remains bounded and local to the affected region.
+
+**Conclusion:**  
+Topology change and long-distance adjacency do not constitute exceptional regimes.  
+Frameworks that hard-code geometric locality struggle to accommodate such structures without violating scalability.
+
+---
+
+## C.2 Extreme Density and Saturation (e.g., Black Hole–Like Regimes)
+
+**Temptation:**  
+Allow unbounded energy density, infinite curvature, or divergent local quantities.
+
+**Observed difficulty:**  
+Infinities signal breakdown of local evolution:
+- undefined state,
+- non-terminating updates,
+- or the need for global intervention.
+
+Such breakdowns violate bounded local computation and destroy scalability.
+
+**Behavior in this framework:**  
+Each cell has finite local capacity.  
+Under extreme load, update throughput saturates rather than diverges.
+
+Consequences include:
+- slowed or halted local evolution,
+- preserved consistency in surrounding regions,
+- no requirement for special rules or global repair.
+
+The regime is computationally expensive locally but remains cheap globally.
+
+**Conclusion:**  
+Singular behavior is replaced by saturation and slowdown rather than undefined dynamics.  
+Frameworks that rely on infinities or unbounded local quantities do not degrade gracefully.
+
+---
+
+## C.3 Extreme Initial Conditions and Rapid Expansion
+
+**Temptation:**  
+Treat early-universe–like conditions as requiring special global initialization, boundary conditions, or time-zero rules.
+
+**Observed difficulty:**  
+Global initial conditions undermine:
+- locality,
+- asynchronous evolution,
+- and extensibility under growth.
+
+They introduce coordination cost proportional to total system size.
+
+**Behavior in this framework:**  
+High local activity density naturally produces rapid outward propagation under ordinary local transport rules.
+
+No special initialization or global synchronization is required.  
+Expansion corresponds to ordinary propagation into adjacent, low-load regions.
+
+**Conclusion:**  
+Frameworks requiring special global starting conditions do not scale naturally.  
+Extreme expansion arises as an ordinary consequence of local dynamics under high load.
+
+---
+
+## C.4 Creation and Removal of Space
+
+**Temptation:**  
+Treat the creation of space as an ontologically special event requiring new laws or global renormalization.
+
+**Observed difficulty:**  
+Many frameworks implicitly assign cost to empty space or require global consistency checks when space is added or removed.
+
+**Behavior in this framework:**  
+Space corresponds to substrate cells and adjacency relations.
+
+Creating space involves:
+- allocating new cells,
+- establishing local connectivity,
+- and initializing local state.
+
+All operations are local and additive.  
+Empty space incurs no ongoing computational cost.
+
+**Conclusion:**  
+Frameworks in which empty space is expensive or globally constrained struggle to scale by extension.
+
+---
+
+## C.5 Particle Creation and Annihilation
+
+**Temptation:**  
+Treat particle creation or annihilation as violations of conservation requiring global enforcement or renormalization.
+
+**Observed difficulty:**  
+Global conservation enforcement introduces hidden coordination and scaling costs.
+
+**Behavior in this framework:**  
+Particles correspond to indexed bundles of additive bookkeeping.
+
+Creation and removal involve:
+- allocating or retiring component identifiers,
+- local addition or subtraction of accumulators,
+- scoped commit operations when required.
+
+No unrelated state is touched.
+
+**Conclusion:**  
+Frameworks lacking per-component bookkeeping or relying on global normalization cannot implement creation and annihilation locally.
+
+---
+
+## C.6 Vacuum Structure and Background State
+
+**Temptation:**  
+Treat vacuum structure as an ontologically rich object requiring global definition and normalization.
+
+**Observed difficulty:**  
+Rich vacuum structure often introduces:
+- hidden global fields,
+- normalization spanning the entire universe,
+- or nonlocal adjustment when conditions change.
+
+**Behavior in this framework:**  
+Vacuum corresponds to baseline local state with no active ticks.
+
+Vacuum creation or modification requires no global action and no ongoing cost beyond local initialization.
+
+**Conclusion:**  
+Frameworks that assign intrinsic cost or global structure to vacuum states face scalability challenges.
+
+---
+
+## C.7 Summary
+
+Across these exotic regimes, the framework exhibits a consistent pattern:
+
+- No new fundamental rules are introduced.
+- No global coordination is required.
+- Failure modes are localized as capacity limits or saturation.
+- Ordinary local update rules remain valid.
+
+Exotic phenomena appear not as ontological exceptions, but as **stress tests** of the same substrate constraints that govern ordinary dynamics.
+
+From a survivability perspective, this behavior is a strong indicator of architectural coherence under unbounded growth.
+
+This appendix does not claim correctness with respect to nature.  
+It highlights instead that the framework remains computationally cheap, locally consistent, and structurally stable even in regimes where many alternatives require exceptional treatment.
