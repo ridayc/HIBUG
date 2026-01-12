@@ -121,53 +121,85 @@ These constraints sharply restrict the space of viable rule implementations.
 
 ---
 
-## 3. Probability and Force Dynamics
+## 3. Probability, Force, and Light Tick Dynamics
 
 ### 3.1 Probability Transport
 
-Probability ticks move between neighboring cells.
+Probability is represented by discrete probability ticks that move between neighboring cells.
 
-Each movement updates:
-- total probability mass accumulator,
-- per-particle probability mass accumulator.
+Each probability tick movement updates:
+- the cell’s total probability mass accumulator,
+- the per-component (per-particle) probability mass accumulator.
 
-Local rules conserve probability either exactly or statistically, depending on design choice.
+Local transport rules conserve probability either exactly or statistically, depending on implementation.
 
-Interference-capable transport (e.g., Schrödinger/Madelung-like) is favored because it:
-- preserves reversibility,
-- allows local cancellation,
-- avoids shock or caustic formation that would otherwise require nonlocal resolution.
+Transport rules that support interference (e.g., Schrödinger/Madelung-like schemes) are favored because they:
+- preserve reversibility,
+- allow local cancellation of flows,
+- avoid shock or caustic formation that would otherwise require nonlocal arbitration.
+
+Ordinary probability evolution is fully local, asynchronous, and additive.
 
 ---
 
-### 3.2 Force Ticks: Positive and Negative Emission
+### 3.2 Force Ticks as Finite-Lifetime Flux
 
-Forces are mediated by force ticks generated during probability transport.
+Forces are mediated by **force ticks** generated during probability transport and interaction events.
 
 Core mechanism:
 
-When probability mass moves from cell A to cell B:
+When probability mass moves from cell A to cell B (static emission strategies can also work):
 - positive force ticks are emitted into surrounding directions,
 - corresponding negative force ticks are emitted from the departure region.
 
 Force ticks:
 - propagate locally at finite speed,
-- carry force type and direction,
-- may optionally carry a particle or component ID.
+- carry a force type and direction,
+- may optionally carry a particle (origin) identifier,
+- have a bounded lifetime (TTL) and expire automatically.
 
-Each cell maintains:
+Cells maintain:
 - a total force accumulator per force type,
-- per-particle force accumulators per force type.
+- optional per-particle force accumulators per force type.
+
+Force accumulators therefore measure the **local density of passing force ticks**, not stored field substance.
+
+Static force fields correspond to steady-state flux.  
+Inverse-square–like behavior arises statistically from conserved tick propagation and geometric spreading.
+
+Negative force ticks:
+- enforce local conservation,
+- support static equilibria,
+- prevent runaway accumulation without global coordination.
+
+---
+
+### 3.3 Light (Photon) Ticks as Coherent Tick Bundles
+
+Light is represented not by single ticks but by **coherent bundles of many ticks** (“photon ticks”).
+
+Photon ticks:
+- propagate predominantly in a shared direction,
+- exhibit minimal dispersion in free space,
+- interact weakly unless perturbed by matter or geometry.
+
+Each photon bundle carries a bounded **interaction tail**, implemented as a ring buffer of recently visited cells.  
+The tail is updated as the photon advances, with the oldest entry discarded (the entry in the corresponding CA is updated) when a new cell is entered.
+
+The interaction tail:
+- provides finite local path (CA) memory,
+- suppresses self-interaction with recently generated forces or geometry,
+- sets an effective coherence length without global state.
+
+Photon emission initializes a coherent tick bundle and its tail.  
+Photon absorption must be handled by a measurement-like operation (global, but applied to a local particle or group) and transfers influence into probability and force bookkeeping.
+
+Force ticks and photon ticks share the same substrate rules—local propagation, additivity, finite speed—but differ in emission statistics, directionality, and coherence structure.
 
 This bookkeeping supports:
-- O(1) update cost per force tick,
+- O(1) update cost per force or photon tick,
 - exclusion of self-interaction via local subtraction,
 - clean delta updates during commit.
-
-Negative force ticks play a critical role in:
-- static field support,
-- conservation bookkeeping,
-- preventing runaway accumulation.
 
 ---
 
