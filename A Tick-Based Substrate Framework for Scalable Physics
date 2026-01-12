@@ -2,394 +2,338 @@
 A Tick-Based Substrate Framework for Scalable Physics
 ============================================================
 
-A Tick-Based Substrate Framework for Physics
+A Tick-Based Substrate Framework for Physics  
 Motivation, Structure, and Scalable Realization
-1. Motivation: changing the level of explanation
 
-Most physical theories operate at the level of laws: differential equations over fields, particles, and spacetime.
+---
 
-This framework instead operates at the level of the substrate.
+## 1. Motivation: Changing the Level of Explanation
+
+Most physical theories operate at the level of *laws*: differential equations over fields, particles, and spacetime.
+
+This framework instead operates at the level of the *substrate*.
 
 The guiding idea is simple but strong:
 
-The essential features of physics are not the laws themselves, but the constraints required for a universe to be local, scalable, and asynchronously computable.
+> Many of the characteristic features of known physics may arise not because they are postulated directly, but because they are among the few structures compatible with locality, scalability, and bounded local computation in an extended universe.
 
-Locality, linearity, causality, conservation, relativity, and measurement are not taken as axioms.
-They are treated as emergent necessities of a computational substrate that must function at scale.
+Locality, linearity, causality, conservation, relativity, and measurement are not taken here as axioms.  
+Instead, they are treated as **emergent or strongly favored properties** of a computationally constrained substrate that must function at scale.
 
-The goal is not to replace physics, but to rephrase it in terms of fewer primitives.
+The goal is not to replace existing physical theories, nor to derive them formally, but to re-express familiar physics in terms of a smaller and more primitive set of structural constraints.
 
-2. Fundamental substrate assumptions
-2.1 Space as a computational medium
+---
 
-Space consists of many small computational cells (CA-like units).
+## 2. Fundamental Substrate Assumptions
 
-Cells are arranged on an amorphous, irregular graph, not a rigid lattice.
+### 2.1 Space as a Computational Medium
+
+Space is modeled as a collection of many small computational cells, reminiscent of cellular automata but not restricted to regular lattices.
+
+Cells are arranged on an amorphous, irregular graph rather than a fixed grid.
 
 Each cell:
+- has finite local memory,
+- interacts only with neighboring cells,
+- applies the same local update rules everywhere.
 
-has finite local memory,
+Geometry and curvature are represented structurally through graph connectivity and local update capacity, rather than via explicit geometric fields.
 
-interacts only with neighboring cells,
+There is no preferred coordinate system. Geometry is relational and operational.
 
-applies the same local update rules everywhere.
+---
 
-Geometry and curvature are represented structurally via graph connectivity and update capacity, not via explicit fields.
+### 2.2 State as Local Tallies plus Discrete Events (“Ticks”)
 
-There is no preferred coordinate system. Geometry is relational.
+All physical content is represented through discrete events (“ticks”) that update local state.
 
-2.2 State as local tallies plus discrete events (“ticks”)
+Two broad classes of ticks are used:
 
-All physical content is represented by discrete events:
+- **Probability (mass) ticks**  
+  Represent the distribution and transport of matter or probability.
 
-Probability (mass) ticks
-Represent the distribution and motion of matter/probability.
-
-Force ticks
-Represent interactions and influence propagation.
+- **Force ticks**  
+  Represent interactions and influence propagation.
 
 Each cell maintains local accumulators that summarize active content:
 
-Total probability mass currently present in the cell.
+- total probability mass present in the cell,
+- probability mass per particle or component ID,
+- total force accumulators per force type,
+- per-particle force accumulators per force type for particles contributing force ticks to that cell.
 
-Probability mass per particle / component ID currently present.
+The individual ticks justify these accumulators, but the accumulators are the primary objects used during local updates.
 
-Total force accumulators, per force type.
+This structure supports:
+- constant-time (O(1)) bookkeeping per tick arrival or departure,
+- no scanning of unrelated state,
+- strict locality of ordinary updates.
 
-Per-particle force accumulators, per force type, for every particle that has contributed force ticks to that cell.
+---
 
-The underlying ticks justify these accumulators, but the accumulators are the primary objects used during local updates.
+### 2.3 Additivity (Local Linearity) as a Core Constraint
 
-This structure ensures:
+All contributions combine additively:
 
-constant-time (O(1)) bookkeeping per tick arrival or departure,
+- probability mass adds,
+- force contributions add.
 
-no need to scan unrelated state,
+Both committed (classical) and provisional (coherent) state layers rely on additive composition.
 
-and locality of all ordinary updates.
+This is not presented as an aesthetic preference. Rather, additivity appears to be **strongly favored** by the requirement that:
 
-2.3 Additivity (local linearity) as a core invariant
+- independent influences compose without arbitration,
+- local updates remain simple and bounded,
+- global operations (such as measurement or commit) can be implemented via local delta updates.
 
-All contributions combine additively.
+Non-additive composition generically introduces ordering dependence, arbitration, or hidden global coordination, which undermine scalability.
 
-Probability mass adds.
+---
 
-Forces add.
-
-Both committed (classical) and provisional (quantum/coherent) state layers rely on additivity.
-
-This is not an aesthetic choice.
-It is what makes the framework viable:
-
-independent influences can be combined without arbitration,
-
-local updates remain simple,
-
-and global operations (measurement/commit) can be implemented via delta updates.
-
-Without additivity, collapse would require global recomputation.
-
-2.4 Asynchronous evolution and time
+### 2.4 Asynchronous Evolution and Time
 
 There is no global operational clock.
 
-Cells update asynchronously based on local events.
+Cells update asynchronously, triggered by local events.
 
-Time is defined operationally by local processes.
+Time is defined operationally through local processes rather than imposed globally.
 
-A hidden global bookkeeping order may exist to serialize rare global operations (e.g. commit), but:
+A hidden global bookkeeping order may exist to serialize rare global operations (such as commit), but:
+- it is inaccessible to observers,
+- it does not govern ordinary local dynamics.
 
-it is inaccessible to observers,
+Time is therefore local by construction, consistent with relativistic principles.
 
-it does not define local dynamics.
+---
 
-Time is therefore local by construction.
+### 2.5 Scalability as a Hard Constraint
 
-2.5 Scalability as a hard constraint
+The framework enforces that:
 
-The framework enforces:
+> computational cost scales with active local content, not with total universe size.
 
-computation cost ∝ active local content,
+Consequences include:
+- no free global inspection,
+- no global synchronization during ordinary evolution,
+- rare and tightly scoped global coordination.
 
-not ∝ universe size.
+These constraints sharply restrict the space of viable rule implementations.
 
-Consequences:
+---
 
-no free global inspection,
+## 3. Probability and Force Dynamics
 
-no global synchronization in ordinary dynamics,
-
-rare global coordination, tightly scoped.
-
-3. Probability and force dynamics
-3.1 Probability transport
+### 3.1 Probability Transport
 
 Probability ticks move between neighboring cells.
 
 Each movement updates:
+- total probability mass accumulator,
+- per-particle probability mass accumulator.
 
-total probability mass accumulator,
+Local rules conserve probability either exactly or statistically, depending on design choice.
 
-per-particle probability mass accumulator.
+Interference-capable transport (e.g., Schrödinger/Madelung-like) is favored because it:
+- preserves reversibility,
+- allows local cancellation,
+- avoids shock or caustic formation that would otherwise require nonlocal resolution.
 
-Local rules conserve probability exactly or statistically, depending on design choice.
+---
 
-Interference-capable transport (Schrödinger/Madelung-like) is favored because it:
+### 3.2 Force Ticks: Positive and Negative Emission
 
-preserves reversibility,
-
-allows local cancellation,
-
-avoids shock/caustic pathologies that would otherwise require nonlocal resolution.
-
-3.2 Force ticks: positive and negative emission
-
-Forces are mediated by force ticks generated by probability movement.
+Forces are mediated by force ticks generated during probability transport.
 
 Core mechanism:
 
-When probability mass moves from cell A to cell B,
-
-it probabilistically emits positive force ticks into surrounding directions,
-
-and corresponding negative force ticks from the departure region.
+When probability mass moves from cell A to cell B:
+- positive force ticks are emitted into surrounding directions,
+- corresponding negative force ticks are emitted from the departure region.
 
 Force ticks:
-
-propagate locally at finite speed,
-
-carry force type and direction,
-
-may optionally carry a particle ID.
+- propagate locally at finite speed,
+- carry force type and direction,
+- may optionally carry a particle or component ID.
 
 Each cell maintains:
+- a total force accumulator per force type,
+- per-particle force accumulators per force type.
 
-a total force accumulator per force type, and
+This bookkeeping supports:
+- O(1) update cost per force tick,
+- exclusion of self-interaction via local subtraction,
+- clean delta updates during commit.
 
-a per-particle force accumulator per force type for particles that have contributed force ticks.
+Negative force ticks play a critical role in:
+- static field support,
+- conservation bookkeeping,
+- preventing runaway accumulation.
 
-This bookkeeping ensures:
+---
 
-O(1) update cost per force tick arrival,
+## 4. Provisional State, Entanglement, and Measurement
 
-easy exclusion of self-interaction (a particle can subtract its own force contribution),
-
-clean delta updates during commit.
-
-Negative force ticks are essential:
-
-for static fields,
-
-for conservation bookkeeping,
-
-and for avoiding runaway accumulation.
-
-4. Provisional state, entanglement, and measurement
-4.1 Layered state representation
+### 4.1 Layered State Representation
 
 The framework distinguishes multiple layers of state:
 
-Committed state
+- **Committed state**  
+  Public, classical, record-forming, and observer-readable.
 
-Public, classical, record-forming.
+- **Local provisional coherent state**  
+  Branch-sensitive, interference-capable, and removable at collapse.
 
-Stable and observer-readable.
+- **Global additive provisional state**  
+  Basis-insensitive quantities (e.g., total mass or energy density) that remain visible to non-entangled macroscopic regions.
 
-Local provisional coherent state
+Multiple provisional layers may coexist so that:
+- entangled subsystems remain physically influential,
+- without granting classical definiteness prematurely.
 
-Branch-sensitive.
+---
 
-Supports interference and entanglement.
+### 4.2 Entanglement as Provisional Bookkeeping
 
-Subject to removal at collapse.
-
-Global additive provisional state
-
-Basis-insensitive.
-
-Includes quantities like total mass/energy density.
-
-Remains visible to non-entangled macroscopic neighborhoods.
-
-Multiple provisional layers may exist so that:
-
-entangled subsystems remain macroscopically visible,
-
-without granting them classical definiteness.
-
-4.2 Entanglement as provisional bookkeeping
-
-Entanglement is shared provisional bookkeeping across particle IDs.
+Entanglement is represented as shared provisional bookkeeping across component IDs.
 
 Key properties:
+- bookkeeping cost scales with interaction degree, not spatial extent,
+- few-particle entanglement may be spatially extended yet cheap,
+- many-particle entanglement becomes rapidly expensive.
 
-cost scales with interaction degree, not spatial extent,
+This naturally suppresses macroscopic superpositions without explicitly forbidding them.
 
-few-particle entanglement can be spatially large yet cheap,
+---
 
-many-particle entanglement rapidly becomes expensive.
+### 4.3 Measurement as a Commit Operation
 
-This naturally suppresses macroscopic superpositions.
-
-4.3 Measurement as a commit operation
-
-Measurement is the only truly nonlocal, non-reversible primitive.
-
-Commit selects a consistent outcome for a provisional component.
-
-Implemented atomically in hidden bookkeeping time.
-
-Removes old provisional contributions and inserts new ones.
+Measurement is treated as a special operation that:
+- selects a consistent outcome for a provisional component,
+- updates state atomically in hidden bookkeeping time,
+- removes old provisional contributions and inserts new committed ones.
 
 Because each cell stores:
+- total probability mass,
+- per-particle probability mass,
+- total force per type,
+- per-particle force per type,
 
-total probability mass,
-
-per-particle probability mass,
-
-total force per type,
-
-per-particle force per type,
-
-commit can be implemented via local subtraction and addition only for affected IDs and cells.
+commit can be implemented via local subtraction and addition for affected IDs only.
 
 No unrelated state is touched.
 
-Measurement does not give observers computational power:
+Measurement outcomes are uncontrollable and do not enable signaling.
 
-outcomes are uncontrollable,
+---
 
-no signaling is enabled.
-
-4.4 Collapse pressure and load
+### 4.4 Collapse Pressure and Load
 
 Collapse likelihood increases with:
+- size of provisional support,
+- interaction rate,
+- entanglement graph degree,
+- coupling to record-forming environments.
 
-size of provisional support,
+This provides a schematic explanation for:
+- persistence of coherence in isolated systems,
+- collapse induced by detectors,
+- emergence of classicality at macroscopic scales.
 
-interaction rate,
+---
 
-entanglement graph degree,
+## 5. Emergent Physical Behavior
 
-coupling to record-forming environments.
+### 5.1 Linearity and Quantum Structure
 
-This explains:
-
-why isolated systems remain coherent,
-
-why detectors force collapse,
-
-why classicality dominates macroscopic physics.
-
-5. Emergent physical behavior
-5.1 Linearity and quantum structure
-
-Linearity is forced by scalability.
+Linearity appears strongly favored by scalability constraints.
 
 Only additive dynamics:
+- compose locally,
+- preserve reversibility,
+- avoid combinatorial explosion.
 
-compose locally,
+Nonlinearity is therefore isolated to commit operations.
 
-preserve reversibility,
+---
 
-avoid combinatorial explosion.
-
-Nonlinearity is therefore isolated to commit.
-
-5.2 Relativity and time dilation
+### 5.2 Relativity and Time Dilation
 
 Asynchronous local updates imply:
+- no global operational time,
+- only local clocks.
 
-no global operational time,
+Regions with higher interaction load:
+- process more ticks,
+- experience slower effective update rates.
 
-only local clocks.
+This offers a computational interpretation of:
+- time dilation,
+- gravitational slowing,
+- curvature as load-dependent connectivity distortion.
 
-Regions with high interaction load:
+---
 
-process more ticks,
+### 5.3 Gravity as Geometry and Additivity
 
-slow their effective update rate.
-
-This provides a computational interpretation of:
-
-time dilation,
-
-gravitational slowing,
-
-curvature as load-dependent connectivity distortion.
-
-5.3 Gravity as geometry and additivity
-
-Gravity couples to additive quantities:
-
-total mass/energy density.
+Gravity couples to additive quantities such as total mass or energy density.
 
 Because additive provisional layers remain visible:
+- entangled mass distributions gravitate,
+- without forcing collapse.
 
-entangled mass distributions gravitate,
+Geometry updates connectivity rather than applying explicit forces, helping gravity remain computationally cheap.
 
-without forcing collapse.
+---
 
-Geometry updates connectivity rather than applying explicit forces, keeping gravity cheap.
+## 6. Handling Hard and Exotic Cases
 
-6. Handling hard and exotic cases
+- Singularities correspond to computational saturation rather than infinities.
+- Shocks and caustics are avoided via interference-capable transport.
+- Quantum nonlocality is isolated to commit operations.
+- Superluminal transport is not forbidden but explicitly breaks causality, placing the system in a different regime.
 
-Singularities become computational saturation, not infinities.
+The framework aims to degrade gracefully rather than become inconsistent.
 
-Shocks/caustics are avoided via interference-capable transport.
+---
 
-Quantum nonlocality is isolated to commit.
+## 7. Scalable Implementation Sketch (High Level)
 
-Superluminal transport is not forbidden but explicitly breaks causality, moving the system into a different regime.
-
-The framework degrades gracefully instead of becoming inconsistent.
-
-7. Scalable implementation sketch (high level)
-
-Cells store local accumulators and sparse tick references.
-
-Tick movement updates accumulators in O(1).
-
-Ordinary evolution is fully local and asynchronous.
-
-Commit is a scoped transactional rewrite over affected IDs.
-
-Parallel commits are possible for disjoint components.
+- Cells store local accumulators and sparse tick references.
+- Tick movement updates accumulators in O(1).
+- Ordinary evolution is fully local and asynchronous.
+- Commit is a scoped transactional rewrite over affected IDs.
+- Parallel commits are possible for disjoint components.
 
 Scalability is preserved because:
+- work scales with active ticks,
+- global operations are rare,
+- additivity enables delta updates.
 
-work scales with active ticks,
+---
 
-global operations are rare,
-
-and additivity enables delta updates.
-
-8. Closing perspective
+## 8. Closing Perspective
 
 This framework does not introduce new physical laws.
 
-It reduces physics to a smaller set of substrate constraints:
+Instead, it proposes a small set of substrate-level constraints:
+- locality,
+- additivity,
+- asynchronous evolution,
+- and expensive global coordination.
 
-locality,
+From these constraints, familiar physical laws appear as stable and scalable solutions.
 
-additivity,
+The striking observation is not that physics fits this framework uniquely, but that **the family of rules compatible with these constraints is remarkably narrow**, and known physical laws lie squarely within it.
 
-asynchronous evolution,
+This suggests that physical laws may be less arbitrary than traditionally assumed — not because they are maximally elegant, but because they are computationally survivable.
 
-and expensive global coordination.
-
-From these, familiar laws arise as stable, scalable solutions.
-
-The striking observation is not that physics fits this framework,
-but that very little deviation from observed physics remains computationally viable at all.
-
-That suggests the laws we observe may be less arbitrary than traditionally assumed — not because they are elegant, but because they are survivable.
+---
 
 ============================================================
 Appendix A: Failure Modes of Non-Survivable Substrate Designs
 ============================================================
 
-This appendix catalogs alternative substrate intuitions that appear locally reasonable but fail under the framework’s core constraints:
+This appendix catalogs alternative substrate intuitions that may appear locally reasonable or conceptually appealing, but which encounter serious difficulties when evaluated against the framework’s core constraints:
 
 - locality  
 - additivity  
@@ -398,490 +342,456 @@ This appendix catalogs alternative substrate intuitions that appear locally reas
 - scalability by extension  
 - record formation  
 
-The goal is not to argue elegance or plausibility, but survivability: whether a universe built on these alternatives can grow arbitrarily large—in space and in content—without its own bookkeeping becoming dominant.
+The intent is not to claim logical impossibility or empirical falsity.  
+Rather, the focus is **survivability under unbounded growth**: whether a universe built on these alternatives can grow arbitrarily large—in space and in active content—without its own bookkeeping and coordination costs becoming dominant.
+
+In what follows, “failure” should be read as *systemic instability, pathological scaling, or loss of locality*, rather than outright inconsistency.
 
 ------------------------------------------------------------
 A. Non-additive composition
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Allow probability, force, or influence to combine non-additively.
 
-Failure:
-Non-additive composition requires arbitration when multiple influences meet. Arbitration implies:
+**Observed difficulty:**  
+Non-additive composition generally requires arbitration when multiple influences meet. Such arbitration typically implies at least one of the following:
 - global inspection,
 - ordering dependence,
-- or nonlinear resolution dependent on unrelated state.
+- nonlinear resolution dependent on unrelated state.
 
-This breaks:
+These features undermine:
 - local composability,
 - delta-based commit,
-- and extensibility under growth.
+- extensibility under growth.
 
-Conclusion:
-Additivity is not aesthetic. It is the only composition rule compatible with scalable local updates and scoped global correction.
+In practice, systems with non-additive composition tend to accumulate hidden coordination costs as the number of interacting components increases.
+
+**Conclusion:**  
+Additivity is not asserted as the only conceivable rule, but it appears to be the only composition rule known to support scalable local updates and scoped global correction without hidden global bookkeeping.
 
 ------------------------------------------------------------
 B. Nonlinear local transport (shocks and caustics)
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Use nonlinear transport equations for probability or mass flow.
 
-Failure:
-Generic nonlinear transport produces shocks, caustics, or multi-valued flow from smooth initial data.
-After singularity formation, evolution is no longer locally well-defined. Continuation requires:
+**Observed difficulty:**  
+Generic nonlinear transport laws are known to produce shocks, caustics, or multi-valued flow from smooth initial data. Once such singularities form, evolution is no longer locally well-defined. Continuation typically requires:
 - entropy conditions,
 - viscosity limits,
-- or branch selection rules.
+- branch selection rules.
 
-These act as hidden global coordination or ubiquitous irreversibility.
+These mechanisms introduce:
+- irreversibility,
+- hidden global arbitration,
+- or implicit coordination across regions.
 
-Conclusion:
-To avoid nonlocal arbitration, transport must allow interference and cancellation. Linearity is forced; nonlinearity must be isolated to commit.
+**Conclusion:**  
+To avoid nonlocal resolution rules in ordinary evolution, transport mechanisms that support interference and cancellation are strongly favored. Linearity is therefore preferred for ordinary dynamics, with nonlinearity isolated to exceptional operations such as commit.
 
 ------------------------------------------------------------
 C. Global synchronization or universal clocks
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Introduce occasional global synchronization or a preferred time coordinate.
 
-Failure:
-Any synchronization mechanism whose cost scales with system size dominates computation as the universe grows, destroys asynchronous evolution, and reintroduces preferred frames. Even rare synchronization becomes fatal at scale.
+**Observed difficulty:**  
+Any synchronization mechanism whose cost scales with system size becomes increasingly dominant as the universe grows. Even rare synchronization introduces:
+- global coordination pressure,
+- preferred frames,
+- and scaling costs proportional to total extent rather than local activity.
 
-Conclusion:
-Time must be local and operational. Global clocks are computationally non-survivable.
+**Conclusion:**  
+Time must be local and operational. Global clocks or synchronization mechanisms are not ruled out in principle, but they appear incompatible with indefinite scalable growth under bounded local computation.
 
 ------------------------------------------------------------
 D. Gradual or purely local collapse
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Make collapse smooth, continuous, and local.
 
-Failure:
-Local gradual collapse yields frame-dependent partial outcomes, disagreement between regions, or the need for rollback or reconciliation. Consistency then requires hidden global ordering.
+**Observed difficulty:**  
+Purely local or gradual collapse tends to produce:
+- frame-dependent partial outcomes,
+- disagreement between distant regions,
+- or the need for rollback and reconciliation.
 
-Conclusion:
-Collapse must be discrete, atomic, and globally consistent (though hidden). Smooth collapse is incompatible with locality and consistency.
+Maintaining global consistency under such schemes generally requires hidden ordering or coordination mechanisms.
+
+**Conclusion:**  
+If collapse is taken to be a real physical process, it appears difficult to implement consistently without some form of discrete, globally consistent operation—albeit one that remains operationally inaccessible.
 
 ------------------------------------------------------------
 E. Observer-readable provisional state
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Allow observers partial access to provisional or branch-sensitive state.
 
-Failure:
-Any readable provisional information enables postselection bias, branch steering, and effective signaling over repeated trials.
+**Observed difficulty:**  
+Any readable provisional information enables:
+- postselection bias,
+- branch steering,
+- effective signaling through repeated trials.
 
-Conclusion:
-Provisional state must be operationally inaccessible. Measurement must destroy branch information rather than reveal it.
+These effects undermine locality and causal structure.
+
+**Conclusion:**  
+Provisional state appears viable only if it remains operationally inaccessible. Measurement must destroy branch information rather than reveal it.
 
 ------------------------------------------------------------
 F. Unbounded or persistent macroscopic entanglement
 ------------------------------------------------------------
 
-Temptation:
-Allow entanglement to grow and persist without limit.
+**Temptation:**  
+Allow entanglement to grow and persist without bound.
 
-Failure:
-Entanglement grows exponentially with the number of participants. If allowed to persist:
+**Observed difficulty:**  
+Entanglement bookkeeping grows rapidly with the number of participants. If allowed to persist indefinitely at macroscopic scales:
 - local memory saturates,
-- bookkeeping explodes,
+- bookkeeping cost explodes,
 - record formation fails,
-- classicality never stabilizes.
+- classical behavior does not stabilize.
 
-Resolution in this framework:
-Entanglement is allowed to grow exponentially, but:
+**Resolution in this framework:**  
+Entanglement growth is permitted, but:
 - its cost is borne locally,
-- its persistence is probabilistically bounded,
-- collapse caps growth before global failure.
+- its persistence is statistically bounded,
+- collapse limits growth before global bookkeeping dominates.
 
-Conclusion:
-Entanglement is locally expensive, globally tolerable, and statistically bounded. Unbounded persistence is non-survivable.
+**Conclusion:**  
+Entanglement appears locally expensive, globally tolerable, and statistically bounded. Persistent unbounded macroscopic entanglement is difficult to reconcile with scalable locality.
 
 ------------------------------------------------------------
 G. Reversible measurement
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Make measurement reversible in principle.
 
-Failure:
-Reversible measurement implies erasable records, undoable collapse, and recoverable branch correlations. This enables signaling, retrocausality, or branch mining.
+**Observed difficulty:**  
+Reversible measurement implies erasable records, undoable collapse, and recoverable branch correlations. These features enable:
+- signaling,
+- retrocausality,
+- or branch mining.
 
-Conclusion:
-Irreversibility must be isolated to commit. Without it, records cannot exist.
+They also undermine the stability of records.
+
+**Conclusion:**  
+Irreversibility appears necessary for record formation. In this framework, irreversibility is isolated to commit operations rather than distributed throughout ordinary dynamics.
 
 ------------------------------------------------------------
 H. No per-component bookkeeping (pure fields only)
 ------------------------------------------------------------
 
-Temptation:
-Track only aggregate fields, not per-particle or per-component IDs.
+**Temptation:**  
+Track only aggregate fields, without per-particle or per-component identifiers.
 
-Failure:
+**Observed difficulty:**  
 Without component IDs:
 - self-interaction cannot be excluded locally,
 - entanglement bookkeeping cannot be scoped,
 - commit cannot subtract provisional contributions cleanly.
 
-This forces global field rewrites or history-dependent correction.
+This typically forces global field rewrites or history-dependent correction.
 
-Conclusion:
-Component IDs are accounting handles, not ontology. They are required for local delta updates.
+**Conclusion:**  
+Component IDs function as accounting handles rather than ontological commitments. They appear necessary for local delta updates and scalable bookkeeping.
 
 ------------------------------------------------------------
 I. Gravity as a force field rather than geometry/load
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Treat gravity as another long-range force.
 
-Failure:
-Force-mediated gravity requires persistent long-range fields, global normalization, or cumulative imbalance correction. All introduce hidden nonlocal cost.
+**Observed difficulty:**  
+Force-mediated gravity generally requires:
+- persistent long-range fields,
+- global normalization,
+- cumulative imbalance correction.
 
-Conclusion:
-Gravity must couple to additive totals and act via geometry or connectivity distortion to remain cheap.
+These introduce hidden nonlocal cost.
+
+**Conclusion:**  
+Coupling gravity to additive totals and implementing it through geometry or connectivity distortion appears more compatible with bounded local computation.
 
 ------------------------------------------------------------
 J. Unlimited precision or continuous substrate state
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Allow infinite-precision real-valued state.
 
-Failure:
-Infinite precision violates finite local memory, locality, and enables hidden information storage.
+**Observed difficulty:**  
+Infinite precision violates:
+- finite local memory,
+- locality,
+- and bounded information storage.
 
-Conclusion:
-Discreteness at the substrate level is forced. Continua are emergent approximations.
+It also enables hidden information channels.
+
+**Conclusion:**  
+Discreteness at the substrate level appears strongly favored. Continuum descriptions are best viewed as emergent approximations.
 
 ------------------------------------------------------------
 K. Ordinary dynamics with free global coordination
 ------------------------------------------------------------
 
-Temptation:
+**Temptation:**  
 Allow global inspection or coordination during ordinary evolution.
 
-Failure:
-Any free global coordination channel becomes a signaling path, scales with universe size, and dominates cost.
+**Observed difficulty:**  
+Any free global coordination channel:
+- scales with universe size,
+- becomes a signaling path,
+- dominates computational cost.
 
-Conclusion:
-Global coordination must be rare, hidden, and scoped (commit only).
+**Conclusion:**  
+Global coordination must be rare, hidden, and tightly scoped. Ordinary evolution must remain fully local.
 
 ------------------------------------------------------------
-Closing observation (final)
+Closing observation
 ------------------------------------------------------------
 
-Each failure mode above violates the framework’s core scalability requirement: extensibility without coordination.
+Across these cases, failure does not mean logical contradiction.  
+It means loss of scalability, locality, or bounded computation as the universe grows.
 
-In this framework, expanding the universe is computationally trivial. Space can be enlarged simply by adding more local computational cells, with no additional synchronization, normalization, or bookkeeping cost. Empty regions are inert; cost scales only with active local content.
+In this framework, expanding the universe is computationally trivial: adding empty space requires no additional coordination. Cost scales only with active local content.
 
-Crucially, the same is true for matter.
-
-Particles are not global objects but locally realized bundles of probability and force ticks indexed by component IDs. Creating or removing particles requires only local bookkeeping changes and scoped commit operations. No global registry, global renormalization, or universe-wide update is required. As with space, the cost of matter scales with activity, not with total system size.
+The same applies to matter. Particles are locally realized bundles of probability and force ticks indexed by component IDs. Creating or removing particles requires only local bookkeeping changes and scoped commit operations.
 
 Any alternative design in which:
 - empty space incurs cost,
-- particle creation or destruction requires global adjustment,
+- particle creation requires global adjustment,
 - conservation demands global enforcement,
 - or state normalization spans the universe,
 
-fails to remain extensible. Its computational burden grows with universe size rather than with local dynamics.
+appears difficult to extend indefinitely without coordination overhead dominating dynamics.
 
-The constraints of locality, additivity, asynchronous evolution, and isolated global coordination are therefore not aesthetic preferences. They are the minimal conditions under which a universe can grow arbitrarily large — in space and in content — without its own structure becoming its dominant computational expense.
+The constraints of locality, additivity, asynchronous evolution, and isolated global coordination are therefore not presented as aesthetic preferences, but as **structural conditions** under which a universe can grow arbitrarily large—in space and in content—without its own bookkeeping becoming its dominant computational expense.
 
-Physics, in this view, is not the study of all conceivable laws, but of the narrow class that remain viable in a universe where adding space and adding matter are both cheap operations.
+Physics, from this perspective, is not the study of all conceivable laws, but of the narrow family that remain viable under these constraints.
 
 ============================================================
-
-Appendix B: Conceptual Links Between Bounded Local Computation and Relativistic Behavior
-
+Appendix B: Conceptual Links Between Bounded Local Computation
+and Relativistic Behavior
 ============================================================
 
 ---
 
-B.0 Scope and intent
+## B.0 Scope and Intent
 
-This appendix is not a physical theory, nor a derivation of special relativity.
+This appendix is **not** a physical theory, nor a derivation of special relativity.  
 It does not propose new laws, predict deviations, or describe the actual microscopic structure of spacetime.
 
-Its purpose is philosophical and structural:
+Its purpose is **structural and conceptual**:
 
-> to explore how familiar relativistic behaviors may be naturally favored or structurally stable in any universe that treats space as a locally bounded computational medium and seeks to remain scalable, local, and smooth under arbitrary motion.
+> To explore how familiar relativistic behaviors may be naturally favored or rendered robust in any universe that treats space as a locally bounded computational medium and seeks to preserve consistent material behavior under arbitrary uniform motion.
 
+Special relativity is taken as an empirically exact framework.
 
+The question addressed here is therefore not primarily about reference frames, but about matter:
 
-Special relativity is taken as an observationally exact framework.
-The discussion below asks a different question:
-
-> If one attempts to design or imagine a universe whose substrate performs only bounded local computation, what kinds of kinematic behavior are naturally selected or disfavored?
-
-
-
+> *How can material systems—atoms, chemistry, clocks, and macroscopic structures—retain the same physical behavior on planets moving at vastly different velocities relative to one another, while remaining locally computable and scalable?*
 
 ---
 
-B.1 Substrate ordering versus operational time
+## B.1 Substrate Ordering versus Operational Time
 
-In any local system, time is not accessed directly as a universal parameter.
-All observed time is inferred from physical processes: oscillations, decay, signal exchange, and record formation.
+In any physical system, time is not accessed directly as a universal parameter.  
+Observed time is inferred from **material processes**: oscillations, decay, binding, signal exchange, and record formation.
 
 In substrate-style descriptions, it is often useful to distinguish:
 
-Abstract update ordering: a bookkeeping notion ensuring causal consistency.
+- **Abstract update ordering**  
+  A bookkeeping notion ensuring causal consistency.
 
-Operational (proper) time: the rate at which physical processes successfully evolve and form records.
+- **Operational (proper) time**  
+  The rate at which material processes successfully evolve and form records.
 
+Because clocks themselves are material systems, preserving operational time is inseparable from preserving **material dynamics**.
 
 As long as no information can be extracted from abstract ordering alone, operational time remains fully relational and local, consistent with relativistic principles.
 
-This distinction is conceptual, not ontological.
-
-
----
-
-B.2 Bounded local computation and smooth saturation
-
-If space is treated as a collection of local computational elements, each with finite processing capacity, then any quantity that can grow without bound—such as velocity under sustained force—creates a design challenge.
-
-A hard cap on update rates or velocity change leads to pathologies:
-
-discontinuities,
-
-pile-ups,
-
-shock-like propagation of unresolved state,
-
-or the need for nonlocal arbitration.
-
-
-A smooth saturation of response is structurally preferable:
-
-influence continues to arrive,
-
-bookkeeping remains additive,
-
-but incremental effects diminish near capacity limits.
-
-
-This is not asserted as physics, but as a general constraint familiar from numerical stability, control systems, and distributed computation.
-
+This distinction is conceptual rather than ontological.
 
 ---
 
-B.3 Direction-dependent saturation under bulk motion
+## B.2 Bounded Local Computation and Smooth Saturation
+
+If space is treated as a collection of local computational elements, each with finite processing capacity, then any quantity that can grow without bound—such as velocity under sustained force—creates a structural challenge.
+
+Hard caps on update rates or velocity change tend to introduce:
+- discontinuities,
+- pile-ups,
+- unresolved state accumulation,
+- or the need for nonlocal arbitration.
+
+Such pathologies would disrupt the stable response of material systems to forces.
+
+A **smooth saturation of response** is therefore structurally preferable:
+- influence continues to arrive,
+- bookkeeping remains additive,
+- incremental effects diminish near capacity limits,
+- and material behavior remains well-defined.
+
+This is not asserted as a physical law, but as a general stability consideration familiar from numerical analysis, control systems, and distributed computation.
+
+---
+
+## B.3 Direction-Dependent Saturation under Bulk Motion
 
 In a uniformly moving extended system, local computational load is not isotropic.
 
 Directed bulk motion implies:
+- a dominant mass and interaction flux along the direction of motion,
+- higher utilization of update capacity along that axis,
+- earlier onset of saturation effects for force-to-velocity response in that direction.
 
-a dominant mass/interaction flux along the direction of motion,
+Crucially, **material systems must remain coherent under such conditions**.  
+Atoms must continue to bind, forces must balance, and composite structures must remain stable regardless of uniform velocity.
 
-higher utilization of update capacity along that axis,
+The anisotropy is:
+- defined locally by relative motion and interaction throughput,
+- not a preferred global direction.
 
-earlier onset of saturation effects for force-to-velocity response in that direction.
-
-
-Crucially:
-
-the anisotropy is not a preferred global direction,
-
-it is defined locally by relative motion and interaction throughput.
-
-
-This provides a contextual anisotropy without introducing an observable frame.
-
+Directional load is therefore absorbed into how equilibrium is realized, rather than producing a breakdown of material behavior.
 
 ---
 
-B.4 Equilibrium rescaling from anisotropic force response
+## B.4 Equilibrium Rescaling from Anisotropic Force Response
 
 Bound structures exist because internal interactions settle into equilibrium configurations.
 
-If force-induced velocity updates are smoothly reduced along the direction of bulk motion, then restoring dynamics in that direction become less effective, while forces themselves remain present.
+If force-induced velocity updates are smoothly reduced along the direction of bulk motion, restoring dynamics in that direction become less effective, while forces themselves remain present.
 
-For a broad class of effective (potential-like) binding interactions, a uniform anisotropic response can be mathematically equivalent to a rescaling of spatial coordinates along the affected axis.
+For a broad class of effective (potential-like) binding interactions, a uniform anisotropic response can be mathematically equivalent to a rescaling of spatial equilibrium along the affected axis.
 
 Under such conditions:
+- equilibrium configurations adjust,
+- material integrity is preserved,
+- and objects remain stable material systems even at high uniform velocities.
 
-equilibrium shapes may settle into compressed configurations along the motion direction,
-
-without requiring any explicit geometric deformation rule.
-
-
-This is a statement about equivalence of descriptions, not about underlying reality.
-
+This is a statement about equivalence of descriptions, not about underlying ontology.
 
 ---
 
-B.5 Density, internal activity, and transverse load
+## B.5 Density, Internal Activity, and Transverse Load
 
-Compression along one axis increases local density.
+Equilibrium rescaling increases local density along one axis.
 
-Physical objects are never static internally:
+Material systems are never internally static:
+- they exhibit thermal motion,
+- quantum fluctuations,
+- and continual internal interactions.
 
-they exhibit thermal motion,
-
-quantum fluctuations,
-
-and continual internal interactions.
-
-
-Higher density therefore increases local interaction activity in all directions, including transverse ones.
+Higher density therefore increases local interaction activity and processing demand in all directions, including transverse ones.
 
 Importantly:
+- this does not imply net transverse transport or transverse contraction,
+- but it does increase internal load associated with maintaining material dynamics.
 
-this need not imply net transverse transport or transverse contraction,
-
-but it does increase computational load associated with processing internal dynamics and interactions.
-
-
-Thus, while spatial rescaling may be directionally anisotropic, increased activity contributes isotropically to local processing demands.
-
+Thus, while spatial rescaling may be directionally anisotropic, internal material activity contributes isotropically to local processing demand.
 
 ---
 
-B.6 Time rescaling as a shared load consequence
+## B.6 Time Rescaling as a Shared Load Consequence
 
 Local computational elements must allocate finite capacity among:
-
-propagating interactions,
-
-integrating internal dynamics,
-
-maintaining records.
-
+- propagating interactions,
+- integrating internal dynamics,
+- maintaining records.
 
 As interaction density and directed throughput increase, fewer internal state updates may complete per abstract ordering step.
 
-All internal processes slow together.
+All material processes slow together:
+- chemical reactions,
+- decay processes,
+- oscillations,
+- clocks.
 
-This produces a scalar rate reduction:
-
-all clocks,
-
-all internal dynamics,
-
-all record-forming processes,
-
-
-are affected uniformly within the system.
-
-In this view, time rescaling is not an independent mechanism, but a shared consequence of the same bounded resource that governs spatial equilibrium.
-
+Time rescaling therefore preserves **relative material behavior**, ensuring that matter remains internally consistent even as absolute processing rates change.
 
 ---
 
-B.7 Coupling of spatial and temporal scaling
+## B.7 Coupling of Spatial and Temporal Scaling
 
 Because:
+- anisotropic equilibrium shifts, and
+- isotropic rate reduction  
 
-anisotropic equilibrium shifts and
+arise from the same bounded local capacity constraints, their scaling factors are not freely adjustable.
 
-isotropic rate reduction
+If spatial rescaling and temporal slowing were mismatched:
+- internal material processes would desynchronize,
+- equilibrium would fail,
+- stable matter would not persist.
 
-
-arise from the same local capacity constraint, their scaling factors are not freely adjustable.
-
-If they were mismatched:
-
-internal measurements would fail to cancel motion-dependent effects,
-
-preferred frames would become detectable.
-
-
-From a design perspective, a universe that remains scalable and locally consistent under arbitrary motion naturally favors locked spatial and temporal rescaling.
-
-This mirrors the structure observed in special relativity, without asserting identity.
-
+From this perspective, the coupling of spatial and temporal scaling is a **material necessity**, rather than a symmetry imposed for its own sake.
 
 ---
 
-B.8 Signals, measurement, and invariance
+## B.8 Signals, Measurement, and Invariance
 
-Signals propagate through physical media and are detected by physical systems.
+Signals propagate through physical media and are detected by material systems.
 
 If:
+- emission rates,
+- absorption rates,
+- internal clocks,
+- and equilibrium length scales  
 
-emission rates,
+are all governed by the same local constraints, then operational measurements of signal speed remain consistent across uniformly moving systems.
 
-absorption rates,
-
-internal clocks,
-
-and equilibrium length scales
-
-
-are all governed by the same local constraints, then operational measurements of signal speed can remain invariant across uniformly moving systems.
-
-This does not require postulating invariance; it arises as a consistency condition for relational measurement.
-
+Invariance arises as a **consequence of preserving material behavior**, rather than as an independent postulate.
 
 ---
 
-B.9 Uniform motion and observability
+## B.9 Uniform Motion and Observability
 
 In such a framework:
-
-uniform motion alters local load distribution,
-
-but all measurement processes are altered together.
-
+- uniform motion alters local load distribution,
+- but all material and measurement processes are altered together.
 
 As a result:
+- no internal experiment can distinguish uniform motion from rest,
+- only changes in motion (acceleration, interaction gradients) produce observable effects.
 
-no internal experiment can distinguish uniform motion from rest,
-
-only changes in motion (acceleration, interaction gradients) produce observable effects.
-
-
-This matches the relativistic principle of inertial equivalence at the level of operational outcomes.
-
+Uniform frame equivalence and non-distinguishability thus emerge as **side effects** of material invariance.
 
 ---
 
-B.10 Preferred frames and superluminality
+## B.10 Preferred Frames and Superluminality
 
-A preferred frame becomes physically meaningful only if it is operationally accessible.
+A preferred frame becomes physically meaningful only if it is operationally accessible to material systems.
 
-Conceptual background structures—such as abstract update ordering—do not violate relativity as long as they cannot be probed by matter or signals.
+Conceptual background structures—such as abstract update ordering—do not violate relativistic behavior as long as they cannot be probed by matter or signals.
 
-Conversely, if superluminal signaling were accessible, preferred frames would become detectable, signaling a departure from relativistic behavior.
-
-In this sense, relativistic invariance can be viewed as a diagnostic of scalability and locality, not merely a postulate.
-
+Conversely, accessible superluminal signaling would disrupt material consistency and render preferred frames observable, signaling a departure from relativistic structure.
 
 ---
 
-B.11 Summary
+## B.11 Summary
 
-This appendix offers a philosophical perspective, not a physical claim.
+This appendix offers a **conceptual perspective**, not a physical claim.
 
 It suggests that:
 
-Bounded local computation disfavors hard kinematic caps.
+- consistent material behavior under uniform motion is a primary structural requirement,
+- bounded local computation disfavors hard kinematic caps,
+- smooth saturation avoids shock-like pathologies,
+- equilibrium rescaling preserves material integrity,
+- shared capacity constraints naturally couple spatial and temporal scaling,
+- relativistic frame equivalence follows as a consequence rather than a premise.
 
-Smooth saturation avoids shock-like pathologies.
+From this viewpoint, special relativity appears not as an arbitrary axiom, but as a **robust structural solution** to the problem of maintaining stable material physics in a scalable, locally bounded universe.
 
-Direction-dependent load under motion can bias equilibrium structure.
-
-Increased density raises local activity and processing demand.
-
-Shared capacity constraints naturally couple spatial rescaling and temporal slowing.
-
-Uniform motion remains unobservable because all operational processes scale together.
-
-
-From this viewpoint, special relativity appears not as an arbitrary axiom, but as a robust attractor for any universe attempting to remain local, scalable, and smooth under arbitrary motion.
-
-Whether nature actually realizes such a substrate is an empirical question.
-The discussion here only aims to illuminate why relativistic structure may be preferred, stable, or difficult to avoid in computationally constrained worlds.
-
-Finally, quantum mechanics and special relativity can be viewed as complementary regularization principles: one governing probability transport, the other governing velocity response, both enforcing smooth, local evolution under fundamental limits.
-
+Whether nature realizes such a substrate remains an empirical question.  
+The discussion here aims only to clarify why relativistic behavior may be difficult to avoid in any universe where matter must function reliably under arbitrary uniform motion.
 
 ---
