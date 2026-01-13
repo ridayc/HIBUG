@@ -236,10 +236,10 @@ class CCG():
 
 # generic mixer class. Calculations here are pseudoparallel: Each cell is controlled by the "same" rule and all band updates happen simultaneously/are synchronized. Locality window depends on a location parameter. The location parameter itself could be used for computation, but that seems like it would only unneccessarily complicate analysis without real gain.
 class CA_Mixer():
-	def __init(self,wrapper_function):
+	def __init__(self,wrapper_function):
 		self.func = wrapper_function
 	
-	def iter(i,ca_band,tm_band):
+	def iter(self,i,ca_band,tm_band):
 		self.func(i,ca_band,tm_band,ca_param,tm_param)
 
 class TM_Controller():
