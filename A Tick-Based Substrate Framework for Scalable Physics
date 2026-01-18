@@ -1014,3 +1014,316 @@ From a survivability perspective, this behavior is a strong indicator of archite
 
 This appendix does not claim correctness with respect to nature.  
 It highlights instead that the framework remains computationally cheap, locally consistent, and structurally stable even in regimes where many alternatives require exceptional treatment.
+
+
+
+============================================================ Appendix D: A Work-in-Progress Gravity Sector
+Local Flux, Accumulation, and Nonlinear Response
+
+
+---
+
+D.0 Scope and Intent
+
+This appendix proposes a tentative gravity implementation compatible with the tick-based substrate framework described in the main document and Appendices A–C.
+
+It is not a derivation of General Relativity, nor a claim about the true microscopic structure of spacetime.
+Its purpose is architectural:
+
+> To outline a locally computable, scalable, and asynchronous gravity sector that:
+
+preserves causality,
+
+supports long-range interaction,
+
+avoids per-particle bookkeeping,
+
+and degrades gracefully in extreme regimes.
+
+
+
+
+The implementation described here should be understood as one viable class among many, intended to clarify design constraints and identify where nonlinearity must—and must not—enter.
+
+
+---
+
+D.1 Structural Motivation: Why Gravity Must Be Special
+
+Within the substrate framework, gravity is distinguished by three properties:
+
+1. Universality
+All material systems participate; there is no shielding.
+
+
+2. Additivity without Sign Cancellation
+Contributions combine monotonically; there are no positive/negative charges.
+
+
+3. ID-less Coupling
+Gravity couples to total mass–energy, not to particle identities.
+
+
+
+These properties make gravity the only interaction that can plausibly support:
+
+continuous background activity,
+
+long-range influence,
+
+and ubiquitous accumulation,
+
+
+without violating scalability or bounded local computation.
+
+Any gravity implementation must therefore:
+
+avoid per-particle state,
+
+avoid global normalization,
+
+and rely solely on local, additive processes.
+
+
+
+---
+
+D.2 Core State Variables (Per Cell / Per Edge)
+
+The proposed gravity sector uses three classes of local state:
+
+D.2.1 Scalar Potential Accumulator (Φ)
+
+Each cell maintains a scalar accumulator Φ representing the local gravitational environment, interpreted operationally as:
+
+a time-dilation / rate-scaling factor,
+
+a modifier of local update capacity,
+
+and a bias field for routing propagating influence.
+
+
+Φ is ID-less, additive, and stored locally.
+It does not propagate by itself.
+
+
+---
+
+D.2.2 Directed Flux Accumulators (Per Edge)
+
+For each undirected adjacency between neighboring cells , two nonnegative accumulators are stored:
+
+: positive gravitational influence flowing from  to 
+
+: negative gravitational influence flowing from  to 
+
+
+These channels are:
+
+conservative,
+
+directional,
+
+and independent (no automatic cancellation).
+
+
+They represent retarded influence, not static field values.
+
+
+
+---
+
+D.3 Transport Layer: Linear, Conservative Propagation
+
+D.3.1 Per-Edge Flux Propagation
+
+Propagation of gravitational influence is implemented as local redistribution of edge flux:
+
+Incoming flux on edge  is redistributed to outgoing edges  (with ).
+
+Redistribution weights form a local scattering kernel.
+
+Kernels are normalized to preserve total flux per sign.
+
+
+This ensures:
+
+finite propagation speed,
+
+exact local conservation,
+
+and superposition of multiple sources.
+
+
+Linearity at this layer is mandatory to preserve:
+
+additivity,
+
+asynchronous safety,
+
+and scalability.
+
+
+
+---
+
+D.3.2 Positive and Negative Channels
+
+Positive and negative channels are kept distinct to represent:
+
+appearance vs disappearance of mass,
+
+onset vs cessation of motion,
+
+and causal reversals.
+
+
+Cancellation, if any, is explicit and local, never implicit.
+
+
+---
+
+D.4 Accumulation Layer: Potential Update
+
+The scalar potential Φ is updated only via incoming flux:
+
+Positive flux increases Φ.
+
+Negative flux decreases Φ.
+
+
+Φ does not autonomously relax or diffuse.
+Equilibrium emerges statistically from sustained flux traffic.
+
+This design:
+
+avoids elliptic global solves,
+
+preserves causal ordering,
+
+and keeps all influence traceable to propagation history.
+
+
+
+---
+
+D.5 Response Layer: Nonlinear Effects
+
+Nonlinearity enters only in how Φ affects local behavior:
+
+D.5.1 Time Dilation / Rate Gating
+
+Local update rates (for all ticks and processes) are scaled by a function of Φ.
+
+High Φ → slower effective time
+
+Low Φ → faster effective time
+
+
+This implements gravitational time dilation as load-dependent throttling.
+
+
+---
+
+D.5.2 Lensing / Routing Bias
+
+Φ gradients bias:
+
+scattering kernels for flux propagation,
+
+routing probabilities for photon and force ticks,
+
+and motion of probability ticks.
+
+
+This produces:
+
+curved trajectories,
+
+focusing/defocusing,
+
+and horizon-like behavior without explicit boundaries.
+
+
+
+---
+
+D.5.3 Self-Interaction
+
+Because Φ influences propagation rates and routing, gravity influences its own future propagation.
+
+This introduces nonlinearity without breaking additive transport.
+
+
+---
+
+D.6 Wavefronts, Delays, and Horizons
+
+Abrupt mass/energy changes emit gravity influence that propagates outward at finite speed.
+
+Deep wells slow or halt outward propagation.
+
+Regions from which no outward flux escapes function as event horizons.
+
+
+Interior dynamics may continue internally without influencing the exterior, without violating locality or conservation.
+
+
+---
+
+D.7 Scaling and Survivability
+
+The gravity sector remains scalable because:
+
+State per cell and per edge is O(1).
+
+No per-particle bookkeeping is required.
+
+Transport cost scales with active flux, not universe size.
+
+Empty space incurs minimal overhead.
+
+
+This makes gravity computationally survivable even at cosmological scale.
+
+
+---
+
+D.8 Open Questions and Degrees of Freedom
+
+This appendix deliberately leaves open:
+
+the exact scattering kernel form,
+
+flux emission rates from mass and motion,
+
+cutoff or saturation behavior in extreme regimes,
+
+and quantitative recovery of Newtonian / GR limits.
+
+
+These are engineering choices, not architectural flaws.
+
+
+---
+
+D.9 Summary
+
+This appendix sketches a gravity implementation in which:
+
+gravity is not a force but a distributed influence field,
+
+propagation is linear and conservative,
+
+response is nonlinear and load-dependent,
+
+and geometry emerges from routing bias rather than predefined spacetime.
+
+
+The proposal is compatible with all core substrate constraints and isolates gravity as structurally unique—not by assumption, but by necessity.
+
+It is presented as a work in progress, intended to guide further refinement rather than to assert completeness or correctness.
+
+
+---
+
