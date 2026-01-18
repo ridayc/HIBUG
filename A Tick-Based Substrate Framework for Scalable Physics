@@ -2,6 +2,190 @@
 A Tick-Based Substrate Framework for Scalable Physics
 ============================================================
 
+
+============================================================
+Preface
+============================================================
+
+# Why This Framework Exists  
+*(A Pressure Statement, Not a Theory)*
+
+There is a question that modern physics increasingly avoids, not because it is unimportant, but because it sits *upstream* of our usual tools:
+
+> **What kinds of physical laws can exist at all, if the universe must operate locally, asynchronously, and at unbounded scale?**
+
+This document exists because that question no longer feels optional.
+
+---
+
+## The pressure point
+
+We are accustomed to asking whether a theory is:
+- elegant,
+- symmetric,
+- mathematically consistent,
+- empirically successful.
+
+Much less often do we ask whether a theory is **implementable** in a universe that must:
+- update locally,
+- propagate influence causally,
+- avoid global coordination,
+- survive indefinite extension in space and time.
+
+Historically, physics has been able to ignore this question because:
+- continuum formalisms hide implementation cost,
+- global constraints are solved “all at once” on paper,
+- and measurement is idealized away.
+
+But once one takes *locality and scalability seriously*, a pressure appears that does not go away.
+
+Certain kinds of laws simply do not survive these constraints.
+
+---
+
+## A quiet inconsistency
+
+When examined through the lens of scalable local execution, familiar physical laws display an uncanny pattern:
+
+- **Quantum mechanics** is linear, additive, and dominated by interference rather than branching.
+- **Special relativity** forbids global clocks and enforces co-scaling of all local observables.
+- **Gravity** is universal, unscreened, extraordinarily weak per particle, and inseparable from time itself.
+- **Electromagnetism**, by contrast, is source-specific, sign-sensitive, and cannot be background-like.
+
+These features are usually treated as independent facts.
+
+But when one asks how such laws could be *implemented* without global bookkeeping or identity tracking, a striking possibility emerges:
+
+> **Many of the most puzzling features of known physics appear not as arbitrary truths, but as survivability constraints.**
+
+This framework is an attempt to explore that possibility seriously.
+
+---
+
+## What this document is *not*
+
+This is **not**:
+- a replacement for quantum mechanics, relativity, or general relativity,
+- a unified theory of forces,
+- a completed formal system,
+- or a claim of experimental contradiction.
+
+It does not derive known equations.  
+It does not introduce new particles.  
+It does not promise closure.
+
+Any reader looking for those should stop here.
+
+---
+
+## What this document *is*
+
+This document explores a single hypothesis:
+
+> **If physical law must be locally runnable, asynchronous, and indefinitely scalable, then the space of possible laws is far smaller than we usually assume — and the laws we observe may lie in a narrow survivable class.**
+
+The framework that follows:
+- treats implementability as a prior constraint,
+- distinguishes architectural roles rather than unifying everything,
+- accepts heterogeneity where it is forced,
+- and allows symmetries to emerge from co-scaling rather than postulation.
+
+It is a framework of **negative results** as much as positive ones:
+- statements about what *cannot* work,
+- why certain naïve constructions collapse,
+- and why some long-standing intuitions (e.g., force-based gravity) are structurally unstable under scale.
+
+---
+
+## Why gravity is the stress test
+
+Most approaches fail at gravity.
+
+They fail because gravity is:
+- universal,
+- always-on,
+- self-coupling,
+- and inseparable from time and causal structure.
+
+Treating gravity as “just another force” does not scale.  
+Treating it as a global geometric solve does not respect locality.
+
+In this framework, gravity is neither.
+
+It is treated as a background, ID-less, amortized influence that:
+- touches all space,
+- remains weak at the single-particle level,
+- and backreacts on update capacity itself.
+
+Whether this ultimately reproduces general relativity is an open engineering problem.
+
+But the *architectural necessity* of such a role is difficult to avoid once scalability is imposed.
+
+---
+
+## Why this framework resists unification
+
+This framework is not hostile to unification —  
+but it is hostile to the assumption that *everything must unify at the same level*.
+
+Different interactions occupy different architectural roles:
+- some require identity,
+- some forbid it,
+- some tolerate background cost,
+- some would become catastrophic if they did.
+
+Unifying these by force is not elegance — it is fragility.
+
+The unification offered here is not of substances, but of **constraints**.
+
+---
+
+## Who this is for
+
+This document is written for readers who are willing to:
+- reason before equations,
+- take scalability seriously as a physical constraint,
+- accept that some symmetries may be emergent rather than sacred,
+- and tolerate incompleteness in exchange for structural clarity.
+
+It is especially intended for those who work at the intersection of:
+- physics foundations,
+- computation,
+- distributed systems,
+- and complex dynamical modeling.
+
+---
+
+## What you should expect if you continue
+
+You should **not** expect:
+- polished formalism,
+- closed-form derivations,
+- or final answers.
+
+You should expect:
+- a restrictive framework with sharp boundaries,
+- a set of architectural commitments that eliminate many familiar approaches,
+- open engineering problems that are genuinely difficult,
+- and a sense that some long-standing puzzles may be constrained more tightly than before.
+
+If you leave unconvinced, that is acceptable.
+
+If you leave with the sense that *something is now harder to ignore*, the document has done its job.
+
+---
+
+## A final note
+
+This framework is too large to be carried by a single person, and too early to be stabilized by institutions.
+
+It exists here as a **call for shared reasoning**, not belief.
+
+The work that remains is technical, modular, and slow —  
+but the constraint it addresses is immediate.
+
+The question it asks will not go away.
+
 A Tick-Based Substrate Framework for Physics  
 Motivation, Structure, and Scalable Realization
 
