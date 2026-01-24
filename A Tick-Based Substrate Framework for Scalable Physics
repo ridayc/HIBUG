@@ -1513,254 +1513,280 @@ It is presented as a work in progress, intended to guide further refinement rath
 
 =========================================================
 Appendix E: Dark Matter vs. Adaptive Geometry as a
-Framework Case Study
+Constraint-Based Case Study
 =========================================================
 
-OVERVIEW
---------
-This appendix presents the dark matter vs. MOND debate as a case study for how
-the framework’s core axioms guide interpretation of large-scale gravitational
-phenomena.
+---
 
-The purpose is not to argue for a specific physical theory, but to demonstrate
-how locality, asynchronicity, and scalability constrain plausible explanations
-for observed deviations from Newtonian/GR expectations in galactic and
-cosmological regimes.
+## E.0 Scope and Intent
 
-This case study illustrates how the framework naturally prefers explanations
-that modify the *geometric substrate itself* in extreme regimes rather than
-introducing large amounts of unseen ontology.
+This appendix does not propose a physical theory of dark matter, MOND, or dark energy.  
+It is a **structural case study** within the tick-based substrate framework.
 
+Its purpose is to demonstrate how the framework’s core constraints:
 
------------------------------------------------------------------------
+- locality,
+- asynchronous evolution,
+- additivity,
+- bounded local computation,
+- and scalability by extension,
 
-FRAMEWORK AXIOMS (RECALL)
-------------------------
-The framework is based on three core principles:
+restrict the space of viable explanations for large-scale gravitational anomalies.
 
-  • Locality: all physical effects arise from bounded local interactions  
-  • Asynchronicity: updates need not be globally synchronized  
-  • Scalability: laws must remain computable as system size grows  
+The question addressed here is not:
+> *Which hypothesis is correct?*
 
-Observed physical laws are treated as emergent approximations that hold where
-these axioms are not stressed. Deviations are expected where any axiom would
-otherwise be violated.
+but:
+> *Which classes of explanation remain structurally survivable under the framework’s architectural constraints?*
 
+This appendix therefore analyzes two broad families of interpretation:
 
------------------------------------------------------------------------
+1. **Ontology expansion** (dark matter / dark energy), and  
+2. **Rule or geometry adaptation** (MOND-like or adaptive substrate behavior),
 
-GRAVITY AS SPACE–ACTIVITY–ACCELERATION COUPLING
-----------------------------------------------
-Within the framework, gravity is interpreted not as a force field layered on top
-of space, but as a coupling between:
+in terms of bookkeeping cost, locality, and scalability.
 
-  • mass–energy density  
-  • field and interaction activity  
-  • local density of space points  
-  • and the resulting acceleration of matter  
+---
 
-Acceleration remains the operational observable of gravity.  
-However, it is not taken as primitive; it arises from biased routing and update
-rates within an adaptive geometric substrate.
+## E.1 Framework Reminder: Gravity as Geometric Load and Routing Bias
 
-In this view:
+Within this framework, gravity is not implemented as a force field layered atop space.  
+It is realized through:
 
-  • curvature = uneven allocation of space points  
-  • attraction = preferential motion toward denser geometry  
-  • acceleration = emergent from geometric bias and update asymmetry  
-  • time dilation = throttling of local update capacity  
+- additive influence flux,
+- accumulation into a scalar potential-like variable Φ,
+- nonlinear response in update rate (time dilation),
+- and routing bias (trajectory curvature).
 
-This interpretation preserves the conceptual spirit of GR
-(gravity = geometry), while shifting emphasis from continuous curvature to
-adaptive spatial resolution.
+Operationally:
 
+- **curvature** corresponds to biased connectivity and update capacity,
+- **attraction** corresponds to preferential motion toward denser routing,
+- **acceleration** emerges from asymmetric update and propagation rules,
+- **time dilation** corresponds to throttling of local update throughput.
 
------------------------------------------------------------------------
+Geometry is therefore not static background structure but part of the computational substrate itself.
 
-HIGH-ACTIVITY VS LOW-ACTIVITY REGIMES
-------------------------------------
+Any modification of gravitational behavior must be expressed in terms of:
+- local state variables,
+- local transport,
+- and local response rules.
 
-High-activity regions:
-  • dense matter distributions  
-  • strong acceleration and strong gradients  
-  • frequent interactions  
-  • finely resolved geometry  
-  • standard GR behavior  
+---
 
-Low-activity regions:
-  • sparse mass-energy density  
-  • extremely smooth gravitational fields  
-  • very small accelerations and gradients  
-  • large spatial extent  
-  • low interaction traffic  
-  • increasing bookkeeping cost per unit activity  
+## E.2 Regime Distinction: High-Activity vs. Low-Activity Domains
 
-Galactic outskirts and intergalactic space lie precisely in this second regime.
+The framework distinguishes physical regimes by **local activity density**, not by scale alone.
 
+### High-activity regimes
+- dense matter distributions,
+- strong gradients of Φ,
+- frequent interactions,
+- high tick traffic,
+- finely resolved routing and geometry.
 
------------------------------------------------------------------------
+These regimes naturally reproduce behavior well-approximated by General Relativity.
 
-THE DARK MATTER INTERPRETATION
-------------------------------
-In the dark matter approach, deviations from expected gravitational acceleration
-are explained by introducing additional unseen mass.
+### Low-activity regimes
+- sparse mass-energy density,
+- extremely small Φ-gradients,
+- weak acceleration,
+- large spatial extent,
+- low interaction traffic,
+- bookkeeping dominated by representing smooth structure over large volumes.
 
-Within the framework, this corresponds to:
+Galactic outskirts, intergalactic voids, and cosmological background lie predominantly in this second regime.
 
-  • adding new sources of acceleration  
-  • introducing new state variables  
-  • increasing bookkeeping load globally  
-  • requiring large-scale hidden structure to remain consistent  
+The framework predicts that deviations from standard effective laws should first appear where:
+- gradients are smallest,
+- interaction density is lowest,
+- and representation cost per unit activity is highest.
 
-This solution preserves the continuum geometry of GR at the cost of expanding
-ontology.
+---
 
-It is empirically powerful, but structurally heavy: new matter is introduced
-where gravitational acceleration becomes difficult to account for geometrically.
+## E.3 Interpretation Class 1: Ontology Expansion (Dark Matter / Dark Energy)
 
+**Temptation:**  
+Account for anomalous acceleration by introducing new persistent sources of mass-energy.
 
------------------------------------------------------------------------
+**Structural consequences under the framework:**
 
-THE ADAPTIVE-GEOMETRY (MOND-LIKE) INTERPRETATION
------------------------------------------------
-In a MOND-like or modified-geometry interpretation, deviations arise from changes
-in how space itself responds in extremely smooth, low-gradient, low-acceleration
-regimes.
+- introduces additional tick content everywhere,
+- requires new state variables and transport channels,
+- increases long-range bookkeeping load,
+- demands consistency of unseen structure across arbitrarily large regions,
+- preserves continuum geometry by paying ontological cost.
 
-Within the framework, this corresponds to:
+This approach is empirically powerful but architecturally heavy:
+- anomalies are resolved by adding new sources rather than modifying substrate behavior.
 
-  • a regime change in spatial resolution  
-  • altered routing and connectivity of space  
-  • modified emergence of acceleration from geometry  
-  • no introduction of new entities  
-  • reuse of existing bookkeeping structures  
+From a constraint perspective, this is viable but expensive:
+- scalability is preserved only by allowing large hidden state.
 
-Rather than changing the force law directly, the framework predicts that the
-*representation of space itself* adapts under scalability stress, producing
-effective changes in gravitational acceleration.
+---
 
+## E.4 Interpretation Class 2: Adaptive Geometry (Rule Modification)
 
------------------------------------------------------------------------
+**Alternative:**  
+Allow the geometric substrate itself to adapt in low-activity regimes.
 
-SPACE COARSENING AS A COMPUTATIONAL MECHANISM
----------------------------------------------
-A natural mechanism suggested by the framework is adaptive spatial resolution.
+This does not introduce new entities.  
+Instead, it modifies how existing geometric bookkeeping behaves when stressed by scalability constraints.
+
+Key idea:
+> When representing extremely smooth, low-gradient gravitational structure over vast regions becomes the dominant cost, the substrate adapts its spatial resolution and routing behavior.
+
+This corresponds to a **regime change in geometry**, not a change in force law.
+
+---
+
+## E.5 Local Mechanism: Space Coarsening as a Computational Response
+
+Any adaptive geometry mechanism must satisfy strict locality.
+
+Allowed triggers must be definable from bounded neighborhood data only, for example:
+
+- low tick traffic density,
+- small variance of incoming Φ or flux accumulators,
+- persistent near-zero Φ-gradient,
+- low routing entropy,
+- low interaction rate over a bounded history window.
+
+When such conditions persist, cells may:
+
+- reduce effective adjacency density,
+- merge or coarse-grain routing structure,
+- alter scattering kernels,
+- or lower spatial resolution of bookkeeping.
 
 Interpretation:
 
-  • when mass-energy density and curvature are high, space is finely resolved  
-  • when acceleration and gradients are large, geometry remains dense  
-  • when gravity is weak and smooth over large volumes, space coarsens  
-  • effective distances, routing, and accelerations change accordingly  
+- high curvature → fine geometry,
+- strong gradients → dense connectivity,
+- weak smooth fields → coarse geometry.
 
-This does not imply disappearance of space, but a reduction in the number of
-space points required to represent it.
+This is not disappearance of space but reduction in representational resolution.
 
-Such a mechanism:
-  • preserves locality  
-  • improves scalability  
-  • reduces bookkeeping cost  
-  • naturally alters gravitational acceleration without new matter  
+The mechanism mirrors adaptive mesh refinement in numerical methods, elevated here to a physical substrate principle.
 
-This mirrors adaptive mesh methods in numerical relativity, elevated here to a
-physical principle.
+---
 
+## E.6 Emergent Effects on Acceleration
 
------------------------------------------------------------------------
+Because acceleration arises from routing bias and update asymmetry, changes in geometry directly alter effective gravitational response.
 
-OCCAM’S RAZOR IN FRAMEWORK TERMS
--------------------------------
-Occam’s razor is applied not to particle content but to computational and
-ontological structure.
+Consequences include:
 
-Dark matter:
-  • adds new kinds of entities  
-  • increases global bookkeeping  
-  • introduces hidden sources of acceleration  
+- modified far-field acceleration profiles,
+- increased isotropy in sparse regimes,
+- halo-like behavior without additional mass,
+- preservation of GR-like behavior in dense, high-gradient regions.
+
+Disk galaxies become natural stress tests:
+- anisotropic baryonic sources,
+- embedded in isotropically coarsened geometry,
+- producing approximately spherical far-field acceleration patterns.
+
+No new matter is required; the effect arises from substrate representation alone.
+
+---
+
+## E.7 Extension to Cosmological Acceleration
+
+The same reasoning applies at larger scales.
+
+Extremely sparse, smooth cosmological regions satisfy the same trigger conditions:
+
+- near-zero gradients,
+- low interaction density,
+- dominance of geometric bookkeeping cost.
+
+Adaptive geometry in this regime manifests as:
+
+- background expansion bias,
+- large-scale relaxation of routing structure,
+- effective repulsive acceleration.
+
+This provides a unified architectural category for both galaxy-scale anomalies and cosmic acceleration, without introducing new uniform energy components.
+
+---
+
+## E.8 Failure Modes of Non-Adaptive Designs
+
+Frameworks that do not allow geometric adaptation in low-activity regimes tend to require:
+
+- persistent long-range fields,
+- global normalization,
+- or hidden state extending across the universe.
+
+These violate one or more of:
+
+- bounded local computation,
+- strictly local update rules,
+- scalability by extension.
+
+Thus, refusal to modify geometry forces ontology expansion.
+
+---
+
+## E.9 Failure Modes of Adaptive Geometry (Constraints)
+
+Adaptive geometry itself must consider several structural hazards:
+
+- **Boundary artifacts:** coarse–fine interfaces must conserve flux and avoid spurious reflection.
+- **Hidden synchronization:** refinement rules must not require region-wide agreement.
+- **Preferred-frame leakage:** update ordering must remain operationally inaccessible.
+- **Oscillation and hysteresis:** geometry must not flicker under noise.
+- **Violation of additivity:** routing and coarsening must preserve local conservation laws.
+
+These constraints need to be upheld in all regimes for which experiments match continuum laws.
+
+---
+
+## E.10 Occam’s Razor in Framework Terms
+
+Occam’s razor is applied to **implementation burden**, not particle count.
+
+Ontology expansion:
+- adds new state everywhere,
+- increases bookkeeping volume,
+- preserves rules.
 
 Adaptive geometry:
-  • modifies existing geometric rules  
-  • introduces no new ontology  
-  • reallocates spatial resolution  
-  • preserves GR where acceleration and gradients are large  
+- modifies existing rules,
+- adds no new persistent entities,
+- reallocates representational effort where activity is low.
 
-Under the framework axioms, the second option is structurally simpler unless
-forced otherwise by experiment.
+Under the framework axioms, adaptive geometry is structurally simpler unless empirical evidence forces ontology expansion.
 
+---
 
------------------------------------------------------------------------
+## E.11 Status
 
-EDGE REGIMES AND EXPECTED DEVIATIONS
-------------------------------------
-The framework predicts that deviations from standard gravitational acceleration
-should appear when:
+This appendix does not resolve the dark matter or dark energy problems.
 
-  • accelerations become extremely small  
-  • gravity gradients become extremely small  
-  • interaction density is very low  
-  • spatial extent is very large  
-  • geometric bookkeeping dominates physical dynamics  
+It reframes them as questions of:
 
-Galaxies and cosmological voids satisfy exactly these conditions.
+- geometric bookkeeping under extreme sparsity,
+- regime transitions in substrate behavior,
+- ontology vs. rule-modification tradeoffs,
+- survivability under locality and scalability constraints.
 
-Disk galaxies in particular provide a stress test:
-  • baryons are anisotropically distributed  
-  • space coarsens isotropically  
-  • far-field acceleration becomes more spherical than its sources  
+Both interpretations remain logically possible.
+The framework merely restricts which are architecturally natural.
 
-This produces halo-like acceleration profiles without new mass.
+---
 
+## E.12 Summary
 
------------------------------------------------------------------------
+Under the tick-based substrate framework:
 
-EXTENSION TO DARK ENERGY
-------------------------
-The same reasoning applies at cosmological scales.
+- gravity couples mass-energy to geometric bookkeeping,
+- acceleration emerges from routing bias and update asymmetry,
+- dense regions maintain fine geometry and GR-like behavior,
+- sparse regions trigger geometric coarsening,
+- deviations are expected at galactic and cosmological scales,
+- modified geometry is often structurally cheaper than added matter,
+- dark energy admits the same class of explanation.
 
-Dark energy can be interpreted as:
-
-  • a large-scale low-acceleration regime effect  
-  • background geometric relaxation  
-  • a change in space-point density allocation in extremely sparse regions  
-
-Rather than postulating a new uniform energy component, the framework allows
-cosmic acceleration to arise from the same adaptive-geometry principles
-operating in a different limit.
-
-
------------------------------------------------------------------------
-
-STATUS
-------
-This appendix does not claim to resolve the dark matter or dark energy problems.
-
-It demonstrates how the framework reframes these questions as:
-
-  • geometry–acceleration coupling problems  
-  • scalability and bookkeeping problems  
-  • regime-transition problems  
-  • ontology vs. rule-modification tradeoffs  
-
-The dark matter vs. MOND debate serves as an example of how the framework
-prioritizes explanations that preserve locality, asynchronicity, and scalability
-while minimizing ontological expansion.
-
-
------------------------------------------------------------------------
-
-SUMMARY
--------
-Under the framework axioms:
-
-  • gravity couples mass-energy to space-point density  
-  • acceleration emerges from geometric bias  
-  • high curvature and strong acceleration densify space  
-  • low-gradient, low-acceleration regimes coarsen space  
-  • deviations are expected in galaxies and clusters  
-  • modified geometry is ontologically simpler than dark matter  
-  • dark energy admits the same style of explanation  
-
-This case study illustrates how the framework guides reasoning about anomalous
-gravitational phenomena without committing to a specific physical
-implementation, while remaining conceptually aligned with the geometric spirit
-of General Relativity.
+This case study illustrates how the framework guides reasoning about anomalous gravitational phenomena without committing to specific equations, while remaining faithful to its core constraints of locality, asynchronicity, additivity, and scalable computation.
