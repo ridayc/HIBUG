@@ -1513,7 +1513,7 @@ It is presented as a work in progress, intended to guide further refinement rath
 
 =========================================================
 Appendix E: Dark Matter vs. Adaptive Geometry as a
-Constraint-Based Case Study
+Constraint-Based Case Study  
 (Embedding-Based Interpretation)
 =========================================================
 
@@ -1555,6 +1555,9 @@ Crucially, this appendix adopts an **embedding-based interpretation of geometry*
 > It is an irregular, dynamic adjacency structure.  
 > What observers call “distance,” “curvature,” or “expansion” arises from the nearest or best-fit mapping of this structure into a 3D Euclidean coordinate description.
 
+Spatial geometry is treated operationally in the same sense as time in this framework:  
+both are reconstructed from local signal exchange, routing, and update throughput rather than assumed as background continua.
+
 Thus, when the substrate’s adjacency or routing structure changes, the corresponding Euclidean reconstruction appears as literal expansion, contraction, or curvature—even though no background Euclidean space exists at the substrate level.
 
 ---
@@ -1580,33 +1583,27 @@ Operationally:
 There is no underlying Euclidean metric.  
 Observers reconstruct geometry by embedding the adjacency graph into a smooth coordinate description using signal timing and trajectories.
 
-Therefore:
-
-> A change in adjacency density or routing structure is experienced as a change in distance when mapped into Euclidean space.
-
-This is directly analogous to time in the framework:
-- there is no global clock,  
-- but operational reconstruction yields time dilation.
-
-Space and time are treated symmetrically as emergent from substrate bookkeeping.
+Space and time are therefore treated symmetrically as emergent operational quantities.
 
 ---
 
-## E.2 Regime Distinction: High-Activity vs. Low-Activity Domains
+## E.2 Regime Distinction: High-Gradient vs. Low-Gradient Domains
 
-The framework distinguishes physical regimes by **local activity density**, not by scale alone.
+The framework distinguishes physical regimes by **local activity density and Φ-gradient strength**, not by scale alone.
 
-### High-activity regimes
-- dense matter distributions,  
-- strong gradients of Φ,  
+### High-gradient regimes
+- high mass–energy density,  
+- strong Φ-gradients,  
 - frequent interactions,  
-- high tick traffic,  
+- dense tick traffic,  
 - finely resolved routing and geometry.
 
 These regimes naturally reproduce behavior well-approximated by General Relativity when embedded into a continuum metric.
 
-### Low-activity regimes
-- sparse mass-energy density,  
+High local energy density necessarily implies strong Φ-gradients and therefore belongs to this GR-like fine-geometry regime.
+
+### Low-gradient regimes
+- sparse mass–energy density,  
 - extremely small Φ-gradients,  
 - weak acceleration,  
 - large spatial extent,  
@@ -1615,7 +1612,7 @@ These regimes naturally reproduce behavior well-approximated by General Relativi
 
 Galactic outskirts, intergalactic voids, and cosmological background lie predominantly in this second regime.
 
-The framework predicts that deviations from standard effective laws should first appear where:
+The framework suggests that deviations from standard effective laws should first appear where:
 - gradients are smallest,  
 - interaction density is lowest,  
 - and representational cost per unit activity is highest.
@@ -1625,7 +1622,7 @@ The framework predicts that deviations from standard effective laws should first
 ## E.3 Interpretation Class 1: Ontology Expansion (Dark Matter / Dark Energy)
 
 **Temptation:**  
-Account for anomalous acceleration by introducing new persistent sources of mass-energy.
+Account for anomalous acceleration by introducing new persistent sources of mass–energy.
 
 **Structural consequences under the framework:**
 
@@ -1639,14 +1636,14 @@ This approach is empirically powerful but architecturally heavy:
 - anomalies are resolved by adding new sources rather than modifying substrate behavior.
 
 From a constraint perspective, this is viable but expensive:
-- scalability is preserved only by allowing large hidden state.
+- scalability is preserved only by allowing large hidden state whose bookkeeping burden grows with represented volume rather than local interaction.
 
 ---
 
 ## E.4 Interpretation Class 2: Adaptive Geometry (Rule Modification)
 
 **Alternative:**  
-Allow the geometric substrate itself to adapt in low-activity regimes.
+Allow the geometric substrate itself to adapt in low-gradient regimes.
 
 This does not introduce new entities.  
 Instead, it modifies how existing geometric bookkeeping behaves when stressed by scalability constraints.
@@ -1661,9 +1658,12 @@ In embedding terms:
 
 > The nearest Euclidean reconstruction of the substrate changes, appearing as literal expansion or contraction of distances.
 
+The framework does not assert adaptive geometry as the correct explanation of galactic anomalies.  
+It identifies it as a structurally economical class of models to explore before paying the ontological cost of new pervasive components.
+
 ---
 
-## E.5 Local Mechanism: Space Coarsening as a Computational Response
+## E.5 Local Mechanism: Space Adaptation as a Computational Response
 
 Any adaptive geometry mechanism must satisfy strict locality.
 
@@ -1677,9 +1677,9 @@ Allowed triggers must be definable from bounded neighborhood data only, for exam
 
 When such conditions persist, cells may:
 
+- alter scattering kernels,  
 - reduce effective adjacency density,  
 - merge or coarse-grain routing structure,  
-- alter scattering kernels,  
 - or lower spatial resolution of bookkeeping.
 
 Interpretation:
@@ -1688,15 +1688,12 @@ Interpretation:
 - strong gradients → dense connectivity,  
 - weak smooth fields → coarse geometry.
 
-This is not disappearance of space but reduction in representational resolution.
+This appendix does not choose between kernel adaptation, graph refinement/coarsening, or hybrid mechanisms.  
+Multiple realizations may satisfy the same constraints, and the mathematical engineering problem remains open.
 
-When embedded into Euclidean space, this appears as:
-
-- **GR regime:** effective spatial expansion and positive curvature,  
-- **low-acceleration regime:** effective spatial contraction or curvature inversion,  
-  producing rounder trajectories without added mass.
-
-The mechanism mirrors adaptive mesh refinement in numerical methods, elevated here to a physical substrate principle.
+Adaptation is constrained to be **adiabatic and long-wavelength**.  
+Within any bounded laboratory-scale region, local update rules and observable dynamics remain indistinguishable from the high-activity GR-like regime.  
+Differences appear only through accumulated long-baseline trajectory and timing effects.
 
 ---
 
@@ -1713,10 +1710,10 @@ Consequences include:
 
 Disk galaxies become natural stress tests:
 - anisotropic baryonic sources,  
-- embedded in isotropically coarsened geometry,  
+- embedded in isotropically adapted geometry,  
 - producing approximately spherical far-field acceleration patterns.
 
-No new matter is required; the effect arises from substrate representation alone.
+Observable consequences arise only through integrated path effects such as orbital motion, lensing, and signal timing over large distances, not through local violations of conservation or laboratory-scale dynamics.
 
 ---
 
@@ -1742,7 +1739,7 @@ This provides a unified architectural category for both galaxy-scale anomalies a
 
 ## E.8 Failure Modes of Non-Adaptive Designs
 
-Frameworks that do not allow geometric adaptation in low-activity regimes tend to require:
+Frameworks that do not allow geometric adaptation in low-gradient regimes tend to require:
 
 - persistent long-range fields,  
 - global normalization,  
@@ -1758,17 +1755,18 @@ Thus, refusal to modify geometry forces ontology expansion.
 
 ---
 
-## E.9 Failure Modes of Adaptive Geometry (Constraints)
+## E.9 Failure Modes and Constraints of Adaptive Geometry
 
-Adaptive geometry itself must consider several structural hazards:
+Adaptive geometry itself must satisfy strict structural constraints:
 
 - **Boundary artifacts:** coarse–fine interfaces must conserve flux and avoid spurious reflection.  
 - **Hidden synchronization:** refinement rules must not require region-wide agreement.  
 - **Preferred-frame leakage:** update ordering must remain operationally inaccessible.  
 - **Oscillation and hysteresis:** geometry must not flicker under noise.  
-- **Violation of additivity:** routing and coarsening must preserve local conservation laws.
+- **Violation of additivity:** routing and coarsening must preserve local conservation laws.  
+- **Substrate-level quantum compatibility:** any adaptation must preserve additive transport and interference-capable probability evolution at the local substrate level.
 
-These constraints need to be upheld in all regimes for which experiments match continuum laws.
+Failure to meet these conditions reintroduces nonlocal bookkeeping or breaks the core tick-based architecture.
 
 ---
 
@@ -1802,6 +1800,8 @@ It reframes them as questions of:
 - survivability under locality and scalability constraints,  
 - and embedding-induced interpretations of distance and curvature.
 
+Quantitative reproduction of specific galactic rotation curves, lensing maps, or cosmological structure lies beyond the scope of this appendix and constitutes a downstream engineering problem.
+
 Both interpretations remain logically possible.  
 The framework merely restricts which are architecturally natural.
 
@@ -1811,10 +1811,10 @@ The framework merely restricts which are architecturally natural.
 
 Under the tick-based substrate framework:
 
-- gravity couples mass-energy to geometric bookkeeping,  
+- gravity couples mass–energy to geometric bookkeeping,  
 - acceleration emerges from routing bias and update asymmetry,  
 - dense regions maintain fine geometry and GR-like behavior,  
-- sparse regions trigger geometric coarsening or contraction,  
+- low-gradient regions trigger geometric adaptation,  
 - deviations are expected at galactic and cosmological scales,  
 - modified geometry is often structurally cheaper than added matter,  
 - dark energy admits the same class of explanation,  
