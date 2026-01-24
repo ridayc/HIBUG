@@ -1511,3 +1511,209 @@ It is presented as a work in progress, intended to guide further refinement rath
 
 ---
 
+Appendix E: Dark Matter vs. MOND as a Framework Case Study
+=========================================================
+
+OVERVIEW
+--------
+This appendix presents the dark matter vs. MOND debate as a case study for how
+the framework’s core axioms guide interpretation of large-scale gravitational
+phenomena.
+
+The purpose is not to argue for a specific physical theory, but to demonstrate
+how locality, asynchronicity, and scalability constrain plausible explanations
+for observed deviations from Newtonian/GR expectations in galactic and
+cosmological regimes.
+
+This case study illustrates how the framework naturally prefers explanations
+that modify behavior in extreme low-activity regimes rather than introducing
+large amounts of unseen ontology.
+
+
+-----------------------------------------------------------------------
+
+FRAMEWORK AXIOMS (RECALL)
+------------------------
+The framework is based on three core principles:
+
+  • Locality: all physical effects arise from bounded local interactions  
+  • Asynchronicity: updates need not be globally synchronized  
+  • Scalability: laws must remain computable as system size grows  
+
+Observed physical laws are treated as emergent approximations that hold where
+these axioms are not stressed. Deviations are expected where any axiom would
+otherwise be violated.
+
+
+-----------------------------------------------------------------------
+
+GRAVITY AS ACTIVITY BOOKKEEPING
+-------------------------------
+In the framework, gravity is interpreted as a background bookkeeping field that
+reflects nearby activity (mass and energy).
+
+High-activity regions:
+  • dense matter distributions
+  • frequent interactions
+  • smooth and stable emergent geometry
+  • standard GR behavior
+
+Low-activity regions:
+  • sparse mass-energy density
+  • infrequent interactions
+  • large spatial separation of events
+  • increased bookkeeping cost per unit activity
+
+Galactic outskirts and intergalactic space lie precisely in this low-activity
+regime.
+
+
+-----------------------------------------------------------------------
+
+THE DARK MATTER INTERPRETATION
+------------------------------
+In the dark matter approach, deviations from expected gravitational behavior are
+explained by introducing additional unseen mass.
+
+Within the framework, this corresponds to:
+
+  • adding new sources of activity
+  • introducing new state variables
+  • increasing bookkeeping load globally
+  • requiring large-scale hidden structure to remain consistent
+
+This solution is compatible with the framework but carries a significant
+ontological and computational cost: new entities must be tracked everywhere,
+even in regions where observable activity is minimal.
+
+
+-----------------------------------------------------------------------
+
+THE MOND / MODIFIED-GRAVITY INTERPRETATION
+-----------------------------------------
+In a MOND-like or modified-gravity interpretation, deviations arise from changes
+in the effective gravitational law at extremely low accelerations.
+
+Within the framework, this corresponds to:
+
+  • a regime change in update rules
+  • altered geometry or routing behavior
+  • no introduction of new entities
+  • reuse of existing bookkeeping structures
+
+Low-activity regions are precisely where such regime transitions are expected,
+since maintaining fine-grained spatial bookkeeping becomes increasingly
+expensive relative to the amount of physical activity present.
+
+
+-----------------------------------------------------------------------
+
+SPACE CELL MERGING AS A COMPUTATIONAL MECHANISM
+-----------------------------------------------
+A natural mechanism suggested by the framework is the reduction or merging of
+space cells in regions of very low activity.
+
+Interpretation:
+
+  • when mass-energy density is high, space is finely resolved
+  • when mass-energy density is low, spatial resolution may coarsen
+  • effective distance and propagation rules change accordingly
+
+This does not imply literal disappearance of space, but a change in how many
+cells are required to represent it.
+
+Such a mechanism:
+  • preserves locality
+  • improves scalability
+  • reduces bookkeeping cost
+  • naturally alters gravitational behavior without new matter
+
+
+-----------------------------------------------------------------------
+
+OCCAM’S RAZOR IN FRAMEWORK TERMS
+-------------------------------
+Occam’s razor is applied not to particle content but to computational and
+ontological structure.
+
+Dark matter:
+  • adds new kinds of entities
+  • increases global bookkeeping
+  • introduces hidden activity
+
+Modified gravity / space reduction:
+  • modifies existing rules
+  • introduces no new ontology
+  • reduces computational burden in sparse regions
+
+Under the framework axioms, the second option is strictly simpler unless forced
+otherwise by experiment.
+
+
+-----------------------------------------------------------------------
+
+EDGE REGIMES AND EXPECTED DEVIATIONS
+------------------------------------
+The framework predicts that deviations from standard gravitational laws should
+appear when:
+
+  • activity density becomes extremely low
+  • interaction rates drop below typical scales
+  • spatial bookkeeping dominates physical dynamics
+
+Galaxies and cosmological voids satisfy exactly these conditions.
+
+This suggests that dark matter phenomena may reflect edge-regime behavior of the
+same underlying rules rather than evidence of new substances.
+
+
+-----------------------------------------------------------------------
+
+EXTENSION TO DARK ENERGY
+------------------------
+The same reasoning applies at cosmological scales.
+
+Dark energy can be interpreted as:
+
+  • a large-scale low-activity regime effect
+  • a background geometry relaxation
+  • a change in update bias when matter density is extremely sparse
+
+Rather than postulating a new uniform energy component, the framework allows
+cosmic acceleration to arise from the same space-resolution and bookkeeping
+principles operating in a different limit.
+
+
+-----------------------------------------------------------------------
+
+STATUS
+------
+This appendix does not claim to resolve the dark matter or dark energy problems.
+
+It demonstrates how the framework reframes these questions as:
+
+  • bookkeeping and scalability problems
+  • regime-transition problems
+  • ontology vs. rule-modification tradeoffs
+
+The dark matter vs. MOND debate serves as an example of how the framework
+prioritizes explanations that preserve locality, asynchronicity, and
+scalability while minimizing ontological expansion.
+
+
+-----------------------------------------------------------------------
+
+SUMMARY
+-------
+Under the framework axioms:
+
+  • gravity reflects local activity
+  • low-activity regions stress scalability
+  • modified behavior is expected in those regimes
+  • space cell reduction is a natural computational mechanism
+  • MOND-like interpretations are ontologically simpler than dark matter
+  • dark energy admits the same style of explanation at larger scales
+
+This case study illustrates how the framework guides reasoning about anomalous
+gravitational phenomena without committing to a specific physical
+implementation.
