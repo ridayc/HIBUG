@@ -259,7 +259,7 @@ This structure supports:
 
 All contributions in the substrate combine additively:
 
-- probability transport contributions add,  
+- probability-related contributions add,  
 - force and influence contributions add,  
 - and background quantities (such as gravitational accumulators) update by linear accumulation of local flux.
 
@@ -276,43 +276,48 @@ Non-additive composition generically introduces ordering dependence, conflict re
 
 ---
 
-#### Transport variables versus observables  
+#### Compositional variables versus observables  
 
 A subtle but important distinction is made between:
 
-- **transport variables** — the quantities that propagate locally and combine under asynchronous updates, and  
+- **compositional variables** — the quantities in which local influences accumulate and combine under asynchronous interaction, and  
 - **observables** — the quantities inferred from these variables and experienced by material systems.
 
-The additivity constraint applies primarily to **transport variables**, not necessarily to observables themselves.
+The additivity constraint applies primarily to **compositional variables**, not necessarily to observables themselves.
 
-In many familiar physical theories, the quantities that evolve linearly are not the same as the quantities that are directly observed:
+In many familiar physical theories, the variables that evolve linearly are not the same as the quantities that are directly observed:
 
 - In **quantum mechanics**, complex amplitudes evolve linearly and combine additively, while observed probabilities are nonlinear functions (squared magnitudes) of these amplitudes.
 
-- In **special relativity**, velocities compose nonlinearly and are bounded, but **rapidity** is unbounded and adds linearly under successive boosts. Smooth saturation of velocity arises from a nonlinear mapping of an additive transport variable.
+  This distinction is visible in the contrast between the Schrödinger and Madelung formulations.  
+  The Schrödinger equation evolves a linear complex amplitude field that supports interference and cancellation.  
+  The Madelung equations rewrite this evolution in terms of density and velocity fields, that requires additional resolution rules at singular points or regions via winding conditions.  
+  Both descriptions encode the same physics, but only the amplitude-based formulation makes linear composition of influences without local arbitration obvious.
 
-- In the gravity sector sketched in this framework, gravitational influence propagates as conserved flux and accumulates linearly into a scalar potential-like quantity Φ, while observable effects such as time dilation, lensing, and trajectory curvature depend nonlinearly on Φ.
+- In **special relativity**, velocities compose nonlinearly and are bounded, but **rapidity** is unbounded and adds linearly under successive boosts. Smooth saturation of velocity arises from a nonlinear mapping of an additive compositional variable.
+
+- In the gravity sector sketched in this framework, gravitational influence propagates as conserved flux and accumulates linearly into a scalar quantity Φ, while observable effects such as acceleration, time dilation, lensing, and trajectory curvature depend nonlinearly on Φ.
 
 This pattern appears repeatedly:  
-**the substrate evolves linearly in the variables that must be locally composable**, while observable quantities are nonlinear projections of those variables.
+**the substrate evolves linearly in the variables that must compose locally**, while observable quantities are nonlinear projections of those variables.
 
 ---
 
-#### Why linear transport is structurally favored  
+#### Why linear composition is structurally favored  
 
-Linear transport variables support:
+Linear compositional variables support:
 
 - interference and cancellation rather than shock formation,  
 - reversibility of ordinary evolution,  
 - bounded local bookkeeping,  
 - and stability under arbitrary interleavings of events.
 
-By contrast, nonlinear transport laws tend to produce shocks, caustics, or branch ambiguities that require nonlocal arbitration or entropy conditions to resolve, introducing irreversibility and hidden coordination costs.
+By contrast, nonlinear composition laws tend to produce shocks, caustics, or branch ambiguities that require nonlocal arbitration or entropy conditions to resolve, introducing irreversibility and hidden coordination costs.
 
 The framework therefore favors dynamics in which:
 
-- ordinary evolution is linear in its propagated variables,  
-- nonlinearity is isolated to response functions (e.g., how Φ affects update rate or routing),  
+- ordinary evolution is linear in its compositional variables,  
+- nonlinearity is isolated to response and readout functions (e.g., how Φ affects update rate or routing),  
 - and strong nonlinearity is confined to exceptional operations such as commit.
 
 ---
@@ -1319,7 +1324,7 @@ D.2 Core State Variables (Per Cell / Per Edge)
 
 The proposed gravity sector uses three classes of local state:
 
-D.2.1 Scalar Potential Accumulator (Φ)
+D.2.1 Scalar Accumulator (Φ)
 
 Each cell maintains a scalar accumulator Φ representing the local gravitational environment, interpreted operationally as:
 
@@ -1611,7 +1616,7 @@ Within this framework, gravity is not implemented as a force field layered atop 
 It is realized through:
 
 - additive influence flux,  
-- accumulation into a scalar potential-like variable Φ,  
+- accumulation into a scalar force-like variable Φ,  
 - nonlinear response in update rate (time dilation),  
 - and routing bias (trajectory curvature).
 
