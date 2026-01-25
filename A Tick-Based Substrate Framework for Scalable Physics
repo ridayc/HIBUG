@@ -242,7 +242,7 @@ Two broad classes of ticks are used:
 Each cell maintains local accumulators that summarize active content:
 
 - total probability mass present in the cell,
-- probability mass per particle or component ID,
+- probability mass per particle or component ID (Here “ID” does not mean a global serial number, but a structural link between a component and the local accumulators it participates in, analogous to how spatial adjacency is represented by graph connectivity.),
 - total force accumulators per force type,
 - per-particle force accumulators per force type for particles contributing force ticks to that cell.
 
