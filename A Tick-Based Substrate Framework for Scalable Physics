@@ -242,9 +242,9 @@ Two broad classes of ticks are used:
 Each cell maintains local accumulators that summarize active content:
 
 - total probability mass present in the cell,
-- probability mass per particle or component ID (Here “ID” does not mean a global serial number, but a structural link between a component and the local accumulators it participates in, analogous to how spatial adjacency is represented by graph connectivity.),
+- probability mass per particle or component ID*,
 - total force accumulators per force type,
-- per-particle force accumulators per force type for particles contributing force ticks to that cell.
+- per-particle force accumulators per force type and ID for particles contributing force ticks to that cell.
 
 The individual ticks justify these accumulators, but the accumulators are the primary objects used during local updates.
 
@@ -252,6 +252,8 @@ This structure supports:
 - constant-time (O(1)) bookkeeping per tick arrival or departure,
 - no scanning of unrelated state,
 - strict locality of ordinary updates.
+
+* In this framework, “ID” refers to a relational link between a component and its local bookkeeping structures rather than a global serial number. Identity is thus represented by non-spatial connectivity, in the same sense that spatial locality is represented by graph adjacency, a distinction that later supports entanglement bookkeeping.
 
 ---
 
