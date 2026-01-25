@@ -255,22 +255,65 @@ This structure supports:
 
 ---
 
-### 2.3 Additivity (Local Linearity) as a Core Constraint
+### 2.3 Additivity (Local Linearity) as a Core Constraint  
 
-All contributions combine additively:
+All contributions in the substrate combine additively:
 
-- probability mass adds,
-- force contributions add.
+- probability transport contributions add,  
+- force and influence contributions add,  
+- and background quantities (such as gravitational accumulators) update by linear accumulation of local flux.
 
 Both committed (classical) and provisional (coherent) state layers rely on additive composition.
 
 This is not presented as an aesthetic preference. Rather, additivity appears to be **strongly favored** by the requirement that:
 
-- independent influences compose without arbitration,
-- local updates remain simple and bounded,
-- global operations (such as measurement or commit) can be implemented via local delta updates.
+- independent influences compose without arbitration,  
+- local updates remain simple and bounded,  
+- asynchronous arrivals do not require ordering or resolution rules,  
+- and global operations (such as commit) can be implemented via local delta updates.
 
-Non-additive composition generically introduces ordering dependence, arbitration, or hidden global coordination, which undermine scalability.
+Non-additive composition generically introduces ordering dependence, conflict resolution, or hidden global coordination, all of which undermine scalability.
+
+---
+
+#### Transport variables versus observables  
+
+A subtle but important distinction is made between:
+
+- **transport variables** — the quantities that propagate locally and combine under asynchronous updates, and  
+- **observables** — the quantities inferred from these variables and experienced by material systems.
+
+The additivity constraint applies primarily to **transport variables**, not necessarily to observables themselves.
+
+In many familiar physical theories, the quantities that evolve linearly are not the same as the quantities that are directly observed:
+
+- In **quantum mechanics**, complex amplitudes evolve linearly and combine additively, while observed probabilities are nonlinear functions (squared magnitudes) of these amplitudes.
+
+- In **special relativity**, velocities compose nonlinearly and are bounded, but **rapidity** is unbounded and adds linearly under successive boosts. Smooth saturation of velocity arises from a nonlinear mapping of an additive transport variable.
+
+- In the gravity sector sketched in this framework, gravitational influence propagates as conserved flux and accumulates linearly into a scalar potential-like quantity Φ, while observable effects such as time dilation, lensing, and trajectory curvature depend nonlinearly on Φ.
+
+This pattern appears repeatedly:  
+**the substrate evolves linearly in the variables that must be locally composable**, while observable quantities are nonlinear projections of those variables.
+
+---
+
+#### Why linear transport is structurally favored  
+
+Linear transport variables support:
+
+- interference and cancellation rather than shock formation,  
+- reversibility of ordinary evolution,  
+- bounded local bookkeeping,  
+- and stability under arbitrary interleavings of events.
+
+By contrast, nonlinear transport laws tend to produce shocks, caustics, or branch ambiguities that require nonlocal arbitration or entropy conditions to resolve, introducing irreversibility and hidden coordination costs.
+
+The framework therefore favors dynamics in which:
+
+- ordinary evolution is linear in its propagated variables,  
+- nonlinearity is isolated to response functions (e.g., how Φ affects update rate or routing),  
+- and strong nonlinearity is confined to exceptional operations such as commit.
 
 ---
 
