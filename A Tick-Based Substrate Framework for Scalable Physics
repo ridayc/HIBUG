@@ -1977,7 +1977,7 @@ In this picture:
 - correlated components are resolved together,
 - and the remaining structure is installed as committed reality.
 
-This resembles beta cuts in game trees, where competing futures are evaluated and truncated under constraints.
+This resembles (local and potentially asynchronous) beta cuts in game trees, where competing futures are evaluated and truncated under constraints.
 
 Importantly, this cut is:
 
