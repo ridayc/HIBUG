@@ -1871,3 +1871,187 @@ Under the tick-based substrate framework:
 - and apparent expansion or contraction corresponds to changes in the nearest Euclidean embedding of a non-Euclidean substrate.
 
 This case study illustrates how the framework guides reasoning about anomalous gravitational phenomena without committing to specific equations, while remaining faithful to its core constraints of locality, asynchronicity, additivity, and scalable computation.
+
+# Appendix F: Commit as a Game-Theoretic Cut Process  
+*(Provisional State, Competition, and Outcome Selection)*
+
+---
+
+## F.0 Scope and Intent
+
+This appendix does not introduce a new physical law or interpretation of quantum mechanics.
+
+Its purpose is conceptual:
+
+> To examine whether the **commit operation** may be viewed as a form of game-theoretic cut or selection process acting on provisional state, and to explore the range of interpretations this permits.
+
+The analysis remains internal to the framework.  
+No additional mechanisms are assumed beyond:
+
+- provisional bookkeeping,
+- entanglement links,
+- collapse pressure,
+- and commit as a scoped global consistency operation.
+
+The language of “game,” “players,” and “payoff” is introduced as a structural analogy rather than a literal claim about agency.
+
+---
+
+## F.1 Commit as a Cut Operation
+
+Within the framework, commit performs the following function:
+
+- it resolves a set of mutually incompatible provisional configurations,
+- selects one consistent configuration,
+- removes alternative provisional contributions,
+- and installs the selected configuration as committed state.
+
+This operation has the formal structure of a **cut** in a space of competing possibilities.
+
+One may therefore treat commit abstractly as a mapping:
+
+> from a graph of provisional configurations  
+> to a single surviving configuration.
+
+This resembles known selection procedures in game theory, decision theory, and optimization, including minimax cuts, equilibrium selection, and competitive pruning.
+
+---
+
+## F.2 Players and Strategy Space
+
+In a game-theoretic reinterpretation, the framework does not uniquely specify what constitutes a “player.”
+
+Possible player sets include:
+
+- provisional branches,
+- entangled component IDs,
+- spatially distributed subsystems,
+- external observers interacting with the system,
+- abstract strategy nodes in configuration space,
+- or mixed collections of the above.
+
+Likewise, strategies need not correspond to conscious choice.  
+They may be understood as:
+
+- admissible provisional outcome configurations,
+- consistent bookkeeping assignments,
+- or coherent correlated states.
+
+The framework intentionally leaves this classification open.
+
+---
+
+## F.3 Payoff and Selection Criteria
+
+The framework also does not impose a unique payoff function.
+
+Possible payoff notions include (but are not limited to):
+
+- survivability under commit,
+- bookkeeping cost,
+- coherence persistence,
+- minimal inconsistency,
+- maximal stability,
+- minimal collapse pressure,
+- compatibility with conservation and locality,
+- or relative weight (Born components).
+
+Different interpretations emphasize different payoff structures.
+
+Under this view, commit corresponds to selecting a configuration that wins according to some constrained evaluation rule, rather than being purely random or purely deterministic.
+
+---
+
+## F.4 Beta-Cut Interpretation
+
+The commit operation may be modeled as a **beta cut** on the provisional configuration graph:
+
+- provisional states form a branching structure,
+- correlations impose edges and constraints,
+- collapse pressure weights regions of this graph,
+- and commit selects a cut separating one consistent subgraph from all others.
+
+In this picture:
+
+- incompatible branches are pruned,
+- correlated components are resolved together,
+- and the remaining structure is installed as committed reality.
+
+This resembles beta cuts in game trees, where competing futures are evaluated and truncated under constraints.
+
+Importantly, this cut is:
+
+- global in logical scope,
+- but local in bookkeeping effect,
+- and invisible to ordinary evolution.
+
+---
+
+## F.5 Relation to Measurement Properties
+
+This analogy preserves the framework’s requirements:
+
+- no signaling is introduced,
+- no controllable steering of outcomes arises,
+- locality of ordinary evolution is preserved,
+- commit remains rare and scoped,
+- and additivity and conservation are maintained.
+
+Measurement becomes interpretable as:
+
+> a constrained resolution of competing provisional configurations rather than an inexplicable collapse event.
+
+---
+
+## F.6 Interpretive Freedom
+
+This construction admits a wide spectrum of interpretations:
+
+**Structural interpretation:**  
+Commit is a consistency-enforcing cut in configuration space.
+
+**Probabilistic interpretation:**  
+Born weights arise as relative strengths or stabilities of competing configurations.
+
+**Interactive interpretation:**  
+Observers may be regarded as participants in the selection process through their coupling to provisional state.
+
+**Game-theoretic interpretation:**  
+Collapse resembles a distributed equilibrium or minimax cut under architectural rules.
+
+**Speculative interpretation:**  
+The universe behaves like a vast silent game in which possible realities compete under fixed constraints.
+
+These readings differ in narrative emphasis rather than formal mechanism.
+
+---
+
+## F.7 Closing Perspective
+
+This appendix is intentionally open-ended.
+
+It does not assert that:
+
+- the universe plays a game,
+- outcomes are chosen by agents,
+- or physics is reducible to game theory.
+
+It merely observes that, once commit is understood as a cut in a space of competing provisional configurations, the formal resemblance to game-theoretic selection becomes difficult to ignore.
+
+Whether one regards this as:
+
+- a mathematical analogy,
+- a philosophical lens,
+- or a piece of playful popular-science speculation,
+
+depends on taste rather than necessity.
+
+Some interpretations are sober.  
+Others are whimsical.  
+All remain compatible with the framework.
+
+The purpose of this appendix is to show that the framework can host such a reinterpretation without contradiction — and that even the act of measurement may be viewed, if one wishes, as an uncannily ordinary selection process occurring at the deepest level of physical bookkeeping.
+
+In this sense, the commit operation can be seen not only as collapse, but as a kind of beta cut on reality’s game tree.
+
+What that ultimately means is left deliberately to the reader.
