@@ -1044,7 +1044,7 @@ Certain observables depend on higher moments or order statistics rather than ave
 - and early-time detection tails  
 
 In a substrate where uniform motion is rendered operationally invisible by such generic rescaling, it remains conceptually possible that a preferred-frame scale  
-beta = v/c * 10^-3,  
+beta = v/c prop 10^-3,  
 as estimated from motion relative to the cosmic background, enters only through a **zero-mean stochastic contribution** to microscopic arrival or detection processes. In this case:
 
 - the **mean first-arrival time remains invariant**  
