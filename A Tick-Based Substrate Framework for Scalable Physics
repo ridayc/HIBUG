@@ -1032,34 +1032,32 @@ Uniform frame equivalence and non-distinguishability thus emerge as **side effec
 
 ## B.9a Variance-Only and Extreme-Value Observables
 
-The arguments above establish invariance of **average operational measurements** under uniform motion through coordinated rescaling of material processes, including clocks and rulers, photon emission rates and detection probabilities, frequency shifts, and aberration relations. These transformations preserve mean signal speeds, equilibrium lengths, and average detection probabilities.
+## B.9a Variance-Only and Extreme-Value Observables (Revised)
 
-However, invariance of **means** does not guarantee invariance of the full **stochastic structure** of microscopic detection events.
+The arguments above establish invariance of mean operational observables under uniform motion through coordinated rescaling of material processes, including clocks and rulers, photon emission rates and detection probabilities, frequency shifts, and aberration relations. These transformations preserve average signal speeds, equilibrium lengths, and mean detection times.
 
-Certain observables depend on higher moments or order statistics rather than averages, such as:
+However, invariance of means does not by itself guarantee invariance of the full stochastic structure of microscopic detection events.
 
-- variance of first-arrival times  
+Certain observables depend on higher moments or order statistics rather than averages, including:
+
+- variance of first-photon arrival times  
 - threshold-crossing jitter  
-- coincidence statistics  
-- and early-time detection tails  
+- coincidence and extreme-value statistics  
+- early-time detection tails  
 
-In a substrate where uniform motion is rendered operationally invisible by such generic rescaling, it remains conceptually possible that a preferred-frame scale  
-beta = v/c prop 10^-3,  
-as estimated from motion relative to the cosmic background, enters only through a **zero-mean stochastic contribution** to microscopic arrival or detection processes. In this case:
+In a substrate where uniform motion is rendered operationally invisible by generic rescaling of material processes, it remains conceptually possible that a preferred-frame scale enters only through a zero-mean stochastic contribution to such microscopic timing fluctuations.
 
-- the **mean first-arrival time remains invariant**  
-- while the **variance of first-arrival time** depends weakly on beta (naturally suppressed at least as beta^2)
+Let beta = v/c denote the velocity relative to a cosmic rest frame (for example, the cosmic background). Any such imprint would naturally appear only as a modulation of the shot-noise-limited variance of first-arrival time estimators, with no effect on their mean:
 
-Any such contribution would appear only in the **shot-noise-limited component** of timing statistics. In practical systems,
+sigma_total^2 = sigma_tech^2 + (sigma_shot^2 / N) * [1 + kappa * beta^2 * f(theta, t)],
 
-sigma_total^2 = sigma_shot^2(N) + sigma_technical^2,
+where N is the detected photon number and f(theta, t) is an orientation- and time-dependent modulation with zero mean.
 
-with sigma_shot^2 proportional to 1/N.  
-A diurnal or orientation-dependent modulation would therefore be suppressed by both the small physical factor tied to beta and the fraction of total variance arising from shot noise rather than technical noise.
+For beta approximately 10^-3, the fractional modulation of the shot-noise term is of order 10^-6, corresponding to femtosecond- or sub-femtosecond-scale variations in typical photon-timing jitter. Such effects are confined to the 1/N component of the variance and are therefore strongly suppressed both physically and statistically.
 
-Because most precision experiments minimize and average over shot noise and do not treat variance itself as a primary symmetry observable, any such variance-only imprint would be difficult to distinguish from ordinary instrumental or environmental noise.
+Because most precision experiments minimize shot noise and treat residual variance as technical noise rather than as a symmetry observable, any preferred-frame signature confined to extreme-value or variance-only statistics would be difficult to distinguish from ordinary instrumental fluctuations without purpose-built measurements. In particular, detection would require isolating the shot-noise coefficient itself and searching for weak sidereal or orientation-dependent modulation.
 
-This framework does not assert the existence of such an effect. It notes only that invariance of average observables follows from generic rescaling, while full covariance of higher-order stochastic structure is a stronger empirical requirement, and any residual preferred-frame signature confined to variance or extreme-value statistics would be strongly suppressed and experimentally hard to isolate without purpose-built measurements.
+This framework does not assert the existence of such an effect. It notes only that invariance of average observables follows from generic rescaling, while full covariance of higher-order stochastic structure is a stronger empirical condition, and any residual preferred-frame imprint confined to variance or extreme-value statistics would be both highly suppressed and experimentally hard to isolate.
 
 ---
 
