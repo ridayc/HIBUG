@@ -1030,6 +1030,45 @@ As a result:
 
 Uniform frame equivalence and non-distinguishability thus emerge as **side effects** of material invariance.
 
+## B.9a Nonlinear and Extreme-Value Observables
+
+The arguments above concern invariance of **material behavior and operational measurements** understood primarily in terms of smooth, averaged, or equilibrium quantities:
+
+- mean signal speeds,  
+- equilibrium lengths,  
+- clock rates,  
+- average interaction probabilities,  
+- integrated detection rates.
+
+These quantities depend on linear or invertible transformations of underlying interaction statistics and are therefore naturally preserved when emission, propagation, and detection processes scale together under uniform motion.
+
+However, not all observables are linear.
+
+Certain measurements depend on **nonlinear functionals of microscopic processes**, such as:
+
+- first-arrival times,  
+- threshold crossings,  
+- minimum or maximum detection latencies,  
+- coincidence events,  
+- rare-event tails of probability distributions.
+
+These extreme-value statistics are sensitive to the earliest possible interaction events and to discreteness in underlying processes. They are not determined solely by average rates or equilibrium behavior.
+
+While invariance of average material behavior follows from shared scaling of force dynamics and interaction probabilities, invariance of such nonlinear statistics would require an additional condition:
+
+> that the full stochastic detection process transforms covariantly under uniform motion, not merely its mean or integrated effects.
+
+From the perspective of bounded local computation, this is a stronger requirement than preserving equilibrium structure or average material response.
+
+It therefore remains conceptually possible that:
+
+- all standard operational measurements remain invariant,  
+- while certain extreme or threshold-based observables could encode subtle residual structure associated with substrate ordering or discrete propagation.
+
+Whether nature enforces full stochastic covariance or only average covariance is an empirical question.
+
+The present framework does not assert the existence of such deviations, but highlights them as a narrow class of observables not directly constrained by arguments based solely on material equilibrium and averaged interaction rates.
+
 ---
 
 ## B.10 Preferred Frames and Superluminality
