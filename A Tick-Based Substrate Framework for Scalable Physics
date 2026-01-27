@@ -983,6 +983,8 @@ All material processes slow together:
 
 Time rescaling therefore preserves **relative material behavior**, ensuring that matter remains internally consistent even as absolute processing rates change.
 
+The same shared load constraints that rescale clocks and internal material dynamics must also apply to photon emission and detection. Aberration and Doppler (frequency) shift do not cancel merely as kinematic effects of wave propagation, but because emitters and detectors are themselves material processes governed by the same velocity-dependent rescaling rules. An aberrated, frequency-shifted emission process is therefore operationally inverted by a detector and clock that live in the same inertial frame. This applies not only to propagation geometry and frequency, but also to emission rates, absorption thresholds, and record-forming dynamics. Ordinary experiments thus access only ratios of co-transformed processes rather than raw substrate variables, ensuring that all mean observables--arrival time, frequency, and direction--remain invariant under uniform motion.
+
 ---
 
 ## B.7 Coupling of Spatial and Temporal Scaling
@@ -999,6 +1001,7 @@ If spatial rescaling and temporal slowing were mismatched:
 - stable matter would not persist.
 
 From this perspective, the coupling of spatial and temporal scaling is a **material necessity**, rather than a symmetry imposed for its own sake.
+
 
 ---
 
